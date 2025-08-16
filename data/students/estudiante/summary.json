@@ -1,0 +1,15 @@
+{
+  "student_id": "estudiante",
+  "student_name": "Estudiante",
+  "total_analyses": 3,
+  "first_analysis": "2025-08-16T16:52:40.189461",
+  "last_analysis": "2025-08-16T16:56:04.236615",
+  "average_scores": {
+    "overall": 5.9,
+    "voice": 5.5,
+    "body": 7.3,
+    "facial": 4.5
+  },
+  "improvement_trend": 0.0,
+  "total_practice_time": 51.726
+}

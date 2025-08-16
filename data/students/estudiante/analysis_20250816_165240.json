@@ -1,0 +1,1386 @@
+{
+  "timestamp": "2025-08-16T16:52:40.189461",
+  "student_name": "Estudiante",
+  "topic": "Proyecto Académico",
+  "video_duration": 17.242,
+  "voice_analysis": {
+    "score": 5.5,
+    "transcription": "No se pudo cargar el modelo de transcripción",
+    "clarity_score": 4.7,
+    "speaking_rate": 4,
+    "filler_count": 0,
+    "word_count": 8,
+    "confidence_timeline": [],
+    "feedback": [
+      "Necesitas trabajar en tu técnica vocal y fluidez.",
+      "Hablas muy lento. Intenta aumentar ligeramente la velocidad.",
+      "Excelente control de muletillas.",
+      "Trabaja en tu articulación. Abre más la boca y pronuncia claramente."
+    ]
+  },
+  "body_analysis": {
+    "score": 7.3,
+    "posture_stability": 9.3,
+    "movement_score": 5.0,
+    "gesture_count": 1,
+    "movement_timeline": [
+      {
+        "time": 0.0,
+        "movement_intensity": 0,
+        "gesture_active": false
+      },
+      {
+        "time": 0.2,
+        "movement_intensity": 0.04858125318939341,
+        "gesture_active": false
+      },
+      {
+        "time": 0.4,
+        "movement_intensity": 0.032850853729825595,
+        "gesture_active": false
+      },
+      {
+        "time": 0.6000000000000001,
+        "movement_intensity": 0.008120625148291436,
+        "gesture_active": false
+      },
+      {
+        "time": 0.8,
+        "movement_intensity": 0.01124029916606584,
+        "gesture_active": false
+      },
+      {
+        "time": 1.0,
+        "movement_intensity": 0.022768361974096187,
+        "gesture_active": false
+      },
+      {
+        "time": 1.2000000000000002,
+        "movement_intensity": 0.017964302773232518,
+        "gesture_active": false
+      },
+      {
+        "time": 1.4000000000000001,
+        "movement_intensity": 0.016397162050031902,
+        "gesture_active": false
+      },
+      {
+        "time": 1.6,
+        "movement_intensity": 0.009762710920420673,
+        "gesture_active": false
+      },
+      {
+        "time": 1.8,
+        "movement_intensity": 0.014661753626084177,
+        "gesture_active": false
+      },
+      {
+        "time": 2.0,
+        "movement_intensity": 0.011459799801306863,
+        "gesture_active": false
+      },
+      {
+        "time": 2.2,
+        "movement_intensity": 0.04040584430932579,
+        "gesture_active": false
+      },
+      {
+        "time": 2.4000000000000004,
+        "movement_intensity": 0.02071758706365865,
+        "gesture_active": false
+      },
+      {
+        "time": 2.6,
+        "movement_intensity": 0.008343474656901965,
+        "gesture_active": false
+      },
+      {
+        "time": 2.8000000000000003,
+        "movement_intensity": 0.013771006659233464,
+        "gesture_active": false
+      },
+      {
+        "time": 3.0,
+        "movement_intensity": 0.024760206620950968,
+        "gesture_active": false
+      },
+      {
+        "time": 3.2,
+        "movement_intensity": 0.015342604593544695,
+        "gesture_active": false
+      },
+      {
+        "time": 3.4000000000000004,
+        "movement_intensity": 0.018561276596087167,
+        "gesture_active": false
+      },
+      {
+        "time": 3.6,
+        "movement_intensity": 0.01475477852685205,
+        "gesture_active": false
+      },
+      {
+        "time": 3.8000000000000003,
+        "movement_intensity": 0.02930288676796547,
+        "gesture_active": false
+      },
+      {
+        "time": 4.0,
+        "movement_intensity": 0.030973418896225964,
+        "gesture_active": false
+      },
+      {
+        "time": 4.2,
+        "movement_intensity": 0.021680393724134182,
+        "gesture_active": false
+      },
+      {
+        "time": 4.4,
+        "movement_intensity": 0.014490826720817569,
+        "gesture_active": false
+      },
+      {
+        "time": 4.6000000000000005,
+        "movement_intensity": 0.01892919006216537,
+        "gesture_active": false
+      },
+      {
+        "time": 4.800000000000001,
+        "movement_intensity": 0.026892796736127225,
+        "gesture_active": false
+      },
+      {
+        "time": 5.0,
+        "movement_intensity": 0.05392884246780851,
+        "gesture_active": false
+      },
+      {
+        "time": 5.2,
+        "movement_intensity": 0.035854771044195606,
+        "gesture_active": false
+      },
+      {
+        "time": 5.4,
+        "movement_intensity": 0.03882511994833174,
+        "gesture_active": false
+      },
+      {
+        "time": 5.6000000000000005,
+        "movement_intensity": 0.028963960338817873,
+        "gesture_active": false
+      },
+      {
+        "time": 5.800000000000001,
+        "movement_intensity": 0.025807108779206177,
+        "gesture_active": false
+      },
+      {
+        "time": 6.0,
+        "movement_intensity": 0.02151509138316986,
+        "gesture_active": false
+      },
+      {
+        "time": 6.2,
+        "movement_intensity": 0.007606928545478762,
+        "gesture_active": false
+      },
+      {
+        "time": 6.4,
+        "movement_intensity": 0.012049561805327583,
+        "gesture_active": false
+      },
+      {
+        "time": 6.6000000000000005,
+        "movement_intensity": 0.013744539885051496,
+        "gesture_active": false
+      },
+      {
+        "time": 6.800000000000001,
+        "movement_intensity": 0.0120025285959051,
+        "gesture_active": false
+      },
+      {
+        "time": 7.0,
+        "movement_intensity": 0.017108080281809296,
+        "gesture_active": false
+      },
+      {
+        "time": 7.2,
+        "movement_intensity": 0.019066084960850903,
+        "gesture_active": false
+      },
+      {
+        "time": 7.4,
+        "movement_intensity": 0.024543306308203488,
+        "gesture_active": false
+      },
+      {
+        "time": 7.6000000000000005,
+        "movement_intensity": 0.008471619395681938,
+        "gesture_active": false
+      },
+      {
+        "time": 7.800000000000001,
+        "movement_intensity": 0.0539975621885206,
+        "gesture_active": false
+      },
+      {
+        "time": 8.0,
+        "movement_intensity": 0.03246290069773078,
+        "gesture_active": false
+      },
+      {
+        "time": 8.200000000000001,
+        "movement_intensity": 0.012605501373861632,
+        "gesture_active": false
+      },
+      {
+        "time": 8.4,
+        "movement_intensity": 0.01362555521023567,
+        "gesture_active": false
+      },
+      {
+        "time": 8.6,
+        "movement_intensity": 0.016458626603819103,
+        "gesture_active": false
+      },
+      {
+        "time": 8.8,
+        "movement_intensity": 0.04595859027466036,
+        "gesture_active": false
+      },
+      {
+        "time": 9.0,
+        "movement_intensity": 0.04501205534407956,
+        "gesture_active": false
+      },
+      {
+        "time": 9.200000000000001,
+        "movement_intensity": 0.10511287033872664,
+        "gesture_active": false
+      },
+      {
+        "time": 9.4,
+        "movement_intensity": 0.08192930142604044,
+        "gesture_active": false
+      },
+      {
+        "time": 9.600000000000001,
+        "movement_intensity": 0.04545447546466016,
+        "gesture_active": false
+      },
+      {
+        "time": 9.8,
+        "movement_intensity": 0.02942982210510944,
+        "gesture_active": false
+      },
+      {
+        "time": 10.0,
+        "movement_intensity": 0.011384042295725405,
+        "gesture_active": false
+      },
+      {
+        "time": 10.200000000000001,
+        "movement_intensity": 0.017738158012830057,
+        "gesture_active": false
+      },
+      {
+        "time": 10.4,
+        "movement_intensity": 0.02845281909287402,
+        "gesture_active": false
+      },
+      {
+        "time": 10.600000000000001,
+        "movement_intensity": 0.04997129518085462,
+        "gesture_active": false
+      },
+      {
+        "time": 10.8,
+        "movement_intensity": 0.06359318290401123,
+        "gesture_active": false
+      },
+      {
+        "time": 11.0,
+        "movement_intensity": 0.0671334090065141,
+        "gesture_active": false
+      },
+      {
+        "time": 11.200000000000001,
+        "movement_intensity": 0.036712271248882156,
+        "gesture_active": false
+      },
+      {
+        "time": 11.4,
+        "movement_intensity": 0.056634392180988286,
+        "gesture_active": false
+      },
+      {
+        "time": 11.600000000000001,
+        "movement_intensity": 0.06283679163115374,
+        "gesture_active": false
+      },
+      {
+        "time": 11.8,
+        "movement_intensity": 0.019092811939406918,
+        "gesture_active": false
+      },
+      {
+        "time": 12.0,
+        "movement_intensity": 0.019977300395824352,
+        "gesture_active": false
+      },
+      {
+        "time": 12.200000000000001,
+        "movement_intensity": 0.01408241240562032,
+        "gesture_active": false
+      },
+      {
+        "time": 12.4,
+        "movement_intensity": 0.012573053738833866,
+        "gesture_active": false
+      },
+      {
+        "time": 12.600000000000001,
+        "movement_intensity": 0.01731369030968182,
+        "gesture_active": false
+      },
+      {
+        "time": 12.8,
+        "movement_intensity": 0.03163088811993605,
+        "gesture_active": false
+      },
+      {
+        "time": 13.0,
+        "movement_intensity": 0.032962101598925916,
+        "gesture_active": false
+      },
+      {
+        "time": 13.200000000000001,
+        "movement_intensity": 0.010671032570348968,
+        "gesture_active": false
+      },
+      {
+        "time": 13.4,
+        "movement_intensity": 0.022735595207158073,
+        "gesture_active": false
+      },
+      {
+        "time": 13.600000000000001,
+        "movement_intensity": 0.0194248317211658,
+        "gesture_active": false
+      },
+      {
+        "time": 13.8,
+        "movement_intensity": 0.005032044023733013,
+        "gesture_active": false
+      },
+      {
+        "time": 14.0,
+        "movement_intensity": 0.025404017305705916,
+        "gesture_active": false
+      },
+      {
+        "time": 14.200000000000001,
+        "movement_intensity": 0.014976611440269016,
+        "gesture_active": false
+      },
+      {
+        "time": 14.4,
+        "movement_intensity": 0.052535479065157334,
+        "gesture_active": false
+      },
+      {
+        "time": 14.600000000000001,
+        "movement_intensity": 0.07826328245460393,
+        "gesture_active": false
+      },
+      {
+        "time": 14.8,
+        "movement_intensity": 0.07290573662709819,
+        "gesture_active": false
+      },
+      {
+        "time": 15.0,
+        "movement_intensity": 0.04307891359144964,
+        "gesture_active": false
+      },
+      {
+        "time": 15.200000000000001,
+        "movement_intensity": 0.020900092295565345,
+        "gesture_active": false
+      },
+      {
+        "time": 15.4,
+        "movement_intensity": 0.018807940126249444,
+        "gesture_active": false
+      },
+      {
+        "time": 15.600000000000001,
+        "movement_intensity": 0.011591241044124819,
+        "gesture_active": false
+      },
+      {
+        "time": 15.8,
+        "movement_intensity": 0.006031842349427535,
+        "gesture_active": false
+      },
+      {
+        "time": 16.0,
+        "movement_intensity": 0.02042536882227028,
+        "gesture_active": false
+      },
+      {
+        "time": 16.2,
+        "movement_intensity": 0.015743193229144577,
+        "gesture_active": false
+      },
+      {
+        "time": 16.400000000000002,
+        "movement_intensity": 0.08845375018637755,
+        "gesture_active": false
+      },
+      {
+        "time": 16.6,
+        "movement_intensity": 0.03343758311424595,
+        "gesture_active": false
+      },
+      {
+        "time": 16.8,
+        "movement_intensity": 0.04831921569540103,
+        "gesture_active": false
+      },
+      {
+        "time": 17.0,
+        "movement_intensity": 0.08858059037745256,
+        "gesture_active": false
+      },
+      {
+        "time": 17.2,
+        "movement_intensity": 0.16534603120106495,
+        "gesture_active": false
+      },
+      {
+        "time": 17.400000000000002,
+        "movement_intensity": 0.30763997452767083,
+        "gesture_active": false
+      },
+      {
+        "time": 17.6,
+        "movement_intensity": 1.5638798925651056,
+        "gesture_active": true
+      },
+      {
+        "time": 17.8,
+        "movement_intensity": 1.1006477526633789,
+        "gesture_active": false
+      }
+    ],
+    "feedback": [
+      "Buena presencia corporal con algunas áreas de mejora.",
+      "Mantuviste una postura excelente durante la presentación.",
+      "Controla mejor tus movimientos. Evita balancearte o moverte excesivamente.",
+      "Incluye más gestos para hacer tu presentación más dinámica."
+    ]
+  },
+  "facial_analysis": {
+    "score": 4.5,
+    "eye_contact_score": 6.0,
+    "confidence_score": 5.9,
+    "smile_count": 0,
+    "blink_rate": 62.6,
+    "emotion_timeline": [
+      {
+        "time": 0.0,
+        "confidence": 0.6323014900328306,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 0.103452,
+        "confidence": 0.6561563761479416,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 0.206904,
+        "confidence": 0.6512650121601833,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 0.31035599999999997,
+        "confidence": 0.3299620205964425,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 0.413808,
+        "confidence": 0.47058823529411764,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 0.5172599999999999,
+        "confidence": 0.5841574848287135,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 0.6207119999999999,
+        "confidence": 0.597078310369017,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 0.724164,
+        "confidence": 0.6327994220821633,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 0.827616,
+        "confidence": 0.5859995889976957,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 0.931068,
+        "confidence": 0.6268797315954283,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 1.0345199999999999,
+        "confidence": 0.6298998192472892,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 1.137972,
+        "confidence": 0.6734861550114464,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 1.2414239999999999,
+        "confidence": 0.6136819044613089,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 1.344876,
+        "confidence": 0.6344831618197551,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 1.448328,
+        "confidence": 0.2720207582318014,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 1.55178,
+        "confidence": 0.4313644617132042,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 1.655232,
+        "confidence": 0.6023203650338489,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 1.758684,
+        "confidence": 0.6371035658544111,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 1.862136,
+        "confidence": 0.5982069842452803,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 1.965588,
+        "confidence": 0.4416025147168922,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 2.0690399999999998,
+        "confidence": 0.40414530762260964,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 2.172492,
+        "confidence": 0.6300290553876514,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 2.275944,
+        "confidence": 0.6050430109275233,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 2.379396,
+        "confidence": 0.6163210119718135,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 2.4828479999999997,
+        "confidence": 0.6246348584655417,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 2.5863,
+        "confidence": 0.5919117647058824,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 2.689752,
+        "confidence": 0.25,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 2.793204,
+        "confidence": 0.5374553453043993,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 2.896656,
+        "confidence": 0.5916453076226096,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 3.000108,
+        "confidence": 0.6187226827573549,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 3.10356,
+        "confidence": 0.6187226827573549,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 3.2070119999999998,
+        "confidence": 0.6187226827573549,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 3.310464,
+        "confidence": 0.25,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 3.413916,
+        "confidence": 0.3149189044172696,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 3.517368,
+        "confidence": 0.5047225003072552,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 3.6208199999999997,
+        "confidence": 0.548573690282806,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 3.724272,
+        "confidence": 0.5747694842452803,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 3.827724,
+        "confidence": 0.25,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 3.931176,
+        "confidence": 0.5599264705882353,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 4.034628,
+        "confidence": 0.7583723070125439,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 4.1380799999999995,
+        "confidence": 0.27080125735844607,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 4.241532,
+        "confidence": 0.42083333333333334,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 4.344984,
+        "confidence": 0.5615390946827425,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 4.448436,
+        "confidence": 0.5218651908897814,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 4.551888,
+        "confidence": 0.4208012573584461,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 4.65534,
+        "confidence": 0.6575842865409636,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 4.758792,
+        "confidence": 0.5526435300262751,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 4.862244,
+        "confidence": 0.5747694842452803,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 4.965695999999999,
+        "confidence": 0.5074740969734716,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 5.069148,
+        "confidence": 0.3472043296405566,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 5.1726,
+        "confidence": 0.5131063549856723,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 5.276052,
+        "confidence": 0.7139407654682839,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 5.379504,
+        "confidence": 0.7084908826601964,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 5.482956,
+        "confidence": 0.7636054467008357,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 5.586408,
+        "confidence": 0.7523321317088221,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 5.6898599999999995,
+        "confidence": 0.741546623171424,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 5.793312,
+        "confidence": 0.6348848333820915,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 5.896764,
+        "confidence": 0.3189338235294118,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 6.000216,
+        "confidence": 0.2967837146163854,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 6.103668,
+        "confidence": 0.6856146831103336,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 6.20712,
+        "confidence": 0.7355328923325762,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 6.310572,
+        "confidence": 0.6089309261996108,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 6.4140239999999995,
+        "confidence": 0.6187226827573549,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 6.517475999999999,
+        "confidence": 0.55993089596991,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 6.620928,
+        "confidence": 0.32323288810850154,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 6.72438,
+        "confidence": 0.5229779411764706,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 6.827832,
+        "confidence": 0.5778511438491561,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 6.931284,
+        "confidence": 0.7694366420552389,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 7.034736,
+        "confidence": 0.5720539189743025,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 7.1381879999999995,
+        "confidence": 0.593418376335708,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 7.241639999999999,
+        "confidence": 0.5919117647058824,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 7.345092,
+        "confidence": 0.29272666937083514,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 7.448544,
+        "confidence": 0.5725267187772497,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 7.551996,
+        "confidence": 0.7545482288757357,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 7.655448,
+        "confidence": 0.7220539189743025,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 7.7589,
+        "confidence": 0.8034292310119951,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 7.862352,
+        "confidence": 0.6740070503088793,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 7.965803999999999,
+        "confidence": 0.6508146798097831,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 8.069256,
+        "confidence": 0.2732565127354766,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 8.172708,
+        "confidence": 0.4552440610528015,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 8.276159999999999,
+        "confidence": 0.6417987626248896,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 8.379612,
+        "confidence": 0.7799330033979841,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 8.483064,
+        "confidence": 0.775829963914082,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 8.586516,
+        "confidence": 0.7663769450731122,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 8.689968,
+        "confidence": 0.27494462894641525,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 8.79342,
+        "confidence": 0.3415559245594971,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 8.896872,
+        "confidence": 0.6190878242918134,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 9.000323999999999,
+        "confidence": 0.6940232087115539,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 9.103776,
+        "confidence": 0.7420878767257737,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 9.207227999999999,
+        "confidence": 0.7170955882352941,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 9.31068,
+        "confidence": 0.7550430109275232,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 9.414132,
+        "confidence": 0.7526366540897051,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 9.517584,
+        "confidence": 0.6371035658544111,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 9.621036,
+        "confidence": 0.6614244190786479,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 9.724488,
+        "confidence": 0.6509790579661194,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 9.82794,
+        "confidence": 0.6739832736156282,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 9.931391999999999,
+        "confidence": 0.7007233755270253,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 10.034844,
+        "confidence": 0.7119054358638517,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 10.138296,
+        "confidence": 0.7074588630486132,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 10.241748,
+        "confidence": 0.6840633121316331,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 10.3452,
+        "confidence": 0.7125477918100322,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 10.448652,
+        "confidence": 0.6715315624690597,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 10.552104,
+        "confidence": 0.6490070503088792,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 10.655555999999999,
+        "confidence": 0.6292437064948526,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 10.759008,
+        "confidence": 0.6652889568664564,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 10.86246,
+        "confidence": 0.44164457602415014,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 10.965912,
+        "confidence": 0.7194877996420121,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 11.069364,
+        "confidence": 0.7446730153759856,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 11.172816,
+        "confidence": 0.5698529411764706,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 11.276268,
+        "confidence": 0.7198529411764707,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 11.379719999999999,
+        "confidence": 0.421907733918887,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 11.483172,
+        "confidence": 0.31484277382204884,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 11.586624,
+        "confidence": 0.4564134185445603,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 11.690076,
+        "confidence": 0.5685691912175204,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 11.793528,
+        "confidence": 0.6107069842452802,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 11.89698,
+        "confidence": 0.7198529411764707,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 12.000432,
+        "confidence": 0.5807291666666666,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 12.103883999999999,
+        "confidence": 0.6190878242918134,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 12.207336,
+        "confidence": 0.33689560802873747,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 12.310788,
+        "confidence": 0.5274068590136876,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 12.41424,
+        "confidence": 0.7070512267416259,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 12.517692,
+        "confidence": 0.7359995889976957,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 12.621144,
+        "confidence": 0.7610878722835217,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 12.724596,
+        "confidence": 0.7853543505694737,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 12.828047999999999,
+        "confidence": 0.7639705882352941,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 12.9315,
+        "confidence": 0.7592960677340692,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 13.034951999999999,
+        "confidence": 0.7967543011485287,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 13.138404,
+        "confidence": 0.6080630985793842,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 13.241856,
+        "confidence": 0.6187226827573549,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 13.345308,
+        "confidence": 0.6194366420552389,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 13.44876,
+        "confidence": 0.6193647851574039,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 13.552211999999999,
+        "confidence": 0.6077538901462244,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 13.655664,
+        "confidence": 0.6654871279349559,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 13.759115999999999,
+        "confidence": 0.6372541978037671,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 13.862568,
+        "confidence": 0.7016325673028291,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 13.96602,
+        "confidence": 0.6665099103883507,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 14.069472,
+        "confidence": 0.6826797943554548,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 14.172924,
+        "confidence": 0.8354671168024697,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 14.276375999999999,
+        "confidence": 0.6565861937609866,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 14.379828,
+        "confidence": 0.6945980701073555,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 14.483279999999999,
+        "confidence": 0.7007910903509313,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 14.586732,
+        "confidence": 0.7048194221984554,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 14.690184,
+        "confidence": 0.6245231096895667,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 14.793636,
+        "confidence": 0.5800502425037143,
+        "emotion": "confident",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 14.897088,
+        "confidence": 0.4911956042517745,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 15.000539999999999,
+        "confidence": 0.48648106679424014,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      },
+      {
+        "time": 15.103992,
+        "confidence": 0.5066017463438621,
+        "emotion": "neutral",
+        "smile_intensity": 0.0
+      }
+    ],
+    "feedback": [
+      "Trabaja en tu expresión facial y contacto visual.",
+      "Buen contacto visual, trata de mantenerlo más consistente.",
+      "Trabaja en proyectar más confianza. Relaja tu expresión facial.",
+      "Sonríe más durante tu presentación para conectar mejor con la audiencia.",
+      "Parpadeas demasiado, puede indicar nerviosismo. Trata de relajarte."
+    ]
+  },
+  "overall_score": 5.9,
+  "saved_at": "2025-08-16T16:52:40.194015",
+  "student_id": "estudiante"
+}
