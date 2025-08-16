@@ -19,7 +19,7 @@ from config.languages import get_text, get_available_languages
 
 # Configure page
 st.set_page_config(
-    page_title="Coach AI - Análisis de Presentaciones",
+    page_title="HablaPRO - Análisis de Presentaciones",
     page_icon="🎯",
     layout="wide",
     initial_sidebar_state="collapsed"
@@ -583,9 +583,7 @@ def show_modern_auth_interface(user_manager):
     
     lang = st.session_state.language
     
-    # Create auth background
-    st.markdown('<div class="auth-background">', unsafe_allow_html=True)
-    
+   
     # Header with logo
     logo_html = f'<img src="data:image/jpeg;base64,{logo_b64}" class="logo-image">' if logo_b64 else ""
     
@@ -625,11 +623,7 @@ def show_modern_login_form(user_manager, lang):
     """Show modern login form"""
     
     st.markdown(f"""
-    <div class="analysis-card auth-card">
-        <h3 style="text-align: center; margin-bottom: 2rem; color: var(--accent-primary); font-size: 1.8rem;">
-            {get_text("welcome_back", lang)}
-        </h3>
-    </div>
+    
     """, unsafe_allow_html=True)
     
     with st.form("login_form", clear_on_submit=False):
@@ -906,9 +900,7 @@ def show_modern_student_management(components, user, lang):
     
     # Register new student with modern card
     st.markdown(f"""
-    <div class="analysis-card">
-        <h3 style="margin-bottom: 1.5rem; color: var(--accent-primary);">✨ {get_text('register_new_student', lang)}</h3>
-    </div>
+    
     """, unsafe_allow_html=True)
     
     with st.form("register_student_form", clear_on_submit=True):

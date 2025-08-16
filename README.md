@@ -1,4 +1,4 @@
-# Coach AI v2 - Análisis de Presentaciones con IA
+# habloPRO - Análisis de Presentaciones con IA
 
 Sistema de análisis inteligente de presentaciones que utiliza IA para evaluar habilidades de comunicación, lenguaje corporal y expresión vocal.
 

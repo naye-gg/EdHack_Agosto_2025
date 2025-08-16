@@ -19,7 +19,7 @@ from config.languages import get_text, get_available_languages
 
 # Configure page
 st.set_page_config(
-    page_title="Coach AI - Análisis de Presentaciones",
+    page_title="HablaPRO - Análisis de Presentaciones",
     page_icon="🎯",
     layout="wide",
     initial_sidebar_state="collapsed"
@@ -495,9 +495,7 @@ def show_modern_student_management(components, user):
     
     # Register new student with modern card
     st.markdown("""
-    <div class="analysis-card">
-        <h3 style="margin-bottom: 1.5rem;">✨ Registrar Nuevo Estudiante</h3>
-    </div>
+   
     """, unsafe_allow_html=True)
     
     with st.form("register_student_form", clear_on_submit=True):
