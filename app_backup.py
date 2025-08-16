@@ -223,9 +223,7 @@ def show_modern_login_form(user_manager):
     """Show modern login form"""
     
     st.markdown("""
-    <div class="analysis-card">
-        <h3 style="text-align: center; margin-bottom: 2rem;">Bienvenido de vuelta</h3>
-    </div>
+    
     """, unsafe_allow_html=True)
     
     with st.form("login_form", clear_on_submit=False):

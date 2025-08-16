@@ -1263,7 +1263,7 @@ def generate_class_report(students, components, user, report_type, lang):
     except Exception as e:
         st.error(f"❌ Error generando el reporte de clase: {str(e)}")
 
-def display_modern_results(results, components):
+def display_modern_results(results, components, lang='es'):
     """Display analysis results with modern interface"""
     
     # Overall score card
@@ -1274,28 +1274,33 @@ def display_modern_results(results, components):
     <div class="analysis-card">
         <div style="text-align: center;">
             <h2 style="color: {score_color}; margin-bottom: 1rem; font-size: 2.5rem;">
-                🏆 Puntuación General: {overall_score}/10
+                🏆 {get_text('overall_score', lang)}: {overall_score}/10
             </h2>
         </div>
     </div>
     """, unsafe_allow_html=True)
     
     # Detailed results in tabs
-    tab1, tab2, tab3, tab4 = st.tabs(["🗣️ Análisis de Voz", "🕴️ Lenguaje Corporal", "😊 Expresión Facial", "📊 Gráficos"])
+    tab1, tab2, tab3, tab4 = st.tabs([
+        f"🗣️ {get_text('voice_analysis', lang)}", 
+        f"🕴️ {get_text('body_language', lang)}", 
+        f"😊 {get_text('facial_expression', lang)}", 
+        f"📊 {get_text('charts', lang)}"
+    ])
     
     with tab1:
-        display_voice_results_modern(results['voice_analysis'])
+        display_voice_results_modern(results['voice_analysis'], lang)
     
     with tab2:
-        display_body_results_modern(results['body_analysis'])
+        display_body_results_modern(results['body_analysis'], lang)
     
     with tab3:
-        display_facial_results_modern(results['facial_analysis'])
+        display_facial_results_modern(results['facial_analysis'], lang)
     
     with tab4:
-        display_charts_modern(results, components)
+        display_charts_modern(results, components, lang)
 
-def display_voice_results_modern(voice_analysis):
+def display_voice_results_modern(voice_analysis, lang='es'):
     """Display voice analysis with modern design"""
     
     col1, col2, col3 = st.columns(3)
@@ -1306,7 +1311,7 @@ def display_voice_results_modern(voice_analysis):
     with col1:
         st.markdown(f"""
         <div class="metric-card">
-            <h4 style="color: {score_color}; margin-bottom: 0.5rem;">🗣️ Puntuación Vocal</h4>
+            <h4 style="color: {score_color}; margin-bottom: 0.5rem;">🗣️ {get_text('voice_score', lang)}</h4>
             <h2 style="color: #333; margin: 0.5rem 0; font-size: 2.2rem;">{score}/10</h2>
         </div>
         """, unsafe_allow_html=True)
@@ -1316,7 +1321,7 @@ def display_voice_results_modern(voice_analysis):
         clarity_color = "#28a745" if clarity >= 7 else "#ffc107" if clarity >= 5 else "#dc3545"
         st.markdown(f"""
         <div class="metric-card">
-            <h4 style="color: {clarity_color}; margin-bottom: 0.5rem;">🎯 Claridad</h4>
+            <h4 style="color: {clarity_color}; margin-bottom: 0.5rem;">🎯 {get_text('clarity', lang)}</h4>
             <h2 style="color: #333; margin: 0.5rem 0; font-size: 2.2rem;">{clarity}/10</h2>
         </div>
         """, unsafe_allow_html=True)
@@ -1325,14 +1330,14 @@ def display_voice_results_modern(voice_analysis):
         rate = voice_analysis.get('speaking_rate', 0)
         st.markdown(f"""
         <div class="metric-card">
-            <h4 style="color: #17a2b8; margin-bottom: 0.5rem;">⚡ Velocidad</h4>
+            <h4 style="color: #17a2b8; margin-bottom: 0.5rem;">⚡ {get_text('speed', lang)}</h4>
             <h2 style="color: #333; margin: 0.5rem 0; font-size: 2.2rem;">{rate}</h2>
-            <p style="color: #666; font-size: 0.9rem; margin: 0;">palabras/min</p>
+            <p style="color: #666; font-size: 0.9rem; margin: 0;">{get_text('words_per_minute', lang)}</p>
         </div>
         """, unsafe_allow_html=True)
     
     # Feedback
-    st.markdown("#### 💬 Retroalimentación Detallada")
+    st.markdown(f"#### 💬 {get_text('detailed_feedback', lang)}")
     feedback_container = st.container()
     with feedback_container:
         for i, feedback in enumerate(voice_analysis.get('feedback', [])):
@@ -1342,7 +1347,7 @@ def display_voice_results_modern(voice_analysis):
             </div>
             """, unsafe_allow_html=True)
 
-def display_body_results_modern(body_analysis):
+def display_body_results_modern(body_analysis, lang='es'):
     """Display body language analysis with modern design"""
     
     col1, col2, col3 = st.columns(3)
@@ -1353,7 +1358,7 @@ def display_body_results_modern(body_analysis):
     with col1:
         st.markdown(f"""
         <div class="metric-card">
-            <h4 style="color: {score_color}; margin-bottom: 0.5rem;">🕴️ Puntuación Corporal</h4>
+            <h4 style="color: {score_color}; margin-bottom: 0.5rem;">🕴️ {get_text('body_score', lang)}</h4>
             <h2 style="color: #333; margin: 0.5rem 0; font-size: 2.2rem;">{score}/10</h2>
         </div>
         """, unsafe_allow_html=True)
@@ -1363,7 +1368,7 @@ def display_body_results_modern(body_analysis):
         posture_color = "#28a745" if posture >= 7 else "#ffc107" if posture >= 5 else "#dc3545"
         st.markdown(f"""
         <div class="metric-card">
-            <h4 style="color: {posture_color}; margin-bottom: 0.5rem;">🧍 Postura</h4>
+            <h4 style="color: {posture_color}; margin-bottom: 0.5rem;">🧍 {get_text('posture', lang)}</h4>
             <h2 style="color: #333; margin: 0.5rem 0; font-size: 2.2rem;">{posture}/10</h2>
         </div>
         """, unsafe_allow_html=True)
@@ -1372,14 +1377,14 @@ def display_body_results_modern(body_analysis):
         gestures = body_analysis.get('gesture_count', 0)
         st.markdown(f"""
         <div class="metric-card">
-            <h4 style="color: #17a2b8; margin-bottom: 0.5rem;">👋 Gestos</h4>
+            <h4 style="color: #17a2b8; margin-bottom: 0.5rem;">👋 {get_text('gestures', lang)}</h4>
             <h2 style="color: #333; margin: 0.5rem 0; font-size: 2.2rem;">{gestures}</h2>
-            <p style="color: #666; font-size: 0.9rem; margin: 0;">detectados</p>
+            <p style="color: #666; font-size: 0.9rem; margin: 0;">{get_text('detected', lang)}</p>
         </div>
         """, unsafe_allow_html=True)
     
     # Feedback
-    st.markdown("#### 💬 Retroalimentación Detallada")
+    st.markdown(f"#### 💬 {get_text('detailed_feedback', lang)}")
     for feedback in body_analysis.get('feedback', []):
         st.markdown(f"""
         <div style="background: #f8f9fa; padding: 1rem; margin: 0.5rem 0; border-radius: 10px; border-left: 4px solid #667eea;">
@@ -1387,7 +1392,7 @@ def display_body_results_modern(body_analysis):
         </div>
         """, unsafe_allow_html=True)
 
-def display_facial_results_modern(facial_analysis):
+def display_facial_results_modern(facial_analysis, lang='es'):
     """Display facial expression analysis with modern design"""
     
     col1, col2, col3 = st.columns(3)
@@ -1398,7 +1403,7 @@ def display_facial_results_modern(facial_analysis):
     with col1:
         st.markdown(f"""
         <div class="metric-card">
-            <h4 style="color: {score_color}; margin-bottom: 0.5rem;">😊 Puntuación Facial</h4>
+            <h4 style="color: {score_color}; margin-bottom: 0.5rem;">😊 {get_text('facial_score', lang)}</h4>
             <h2 style="color: #333; margin: 0.5rem 0; font-size: 2.2rem;">{score}/10</h2>
         </div>
         """, unsafe_allow_html=True)
@@ -1408,7 +1413,7 @@ def display_facial_results_modern(facial_analysis):
         eye_color = "#28a745" if eye_contact >= 7 else "#ffc107" if eye_contact >= 5 else "#dc3545"
         st.markdown(f"""
         <div class="metric-card">
-            <h4 style="color: {eye_color}; margin-bottom: 0.5rem;">👁️ Contacto Visual</h4>
+            <h4 style="color: {eye_color}; margin-bottom: 0.5rem;">👁️ {get_text('eye_contact', lang)}</h4>
             <h2 style="color: #333; margin: 0.5rem 0; font-size: 2.2rem;">{eye_contact}/10</h2>
         </div>
         """, unsafe_allow_html=True)
@@ -1417,14 +1422,14 @@ def display_facial_results_modern(facial_analysis):
         smiles = facial_analysis.get('smile_count', 0)
         st.markdown(f"""
         <div class="metric-card">
-            <h4 style="color: #28a745; margin-bottom: 0.5rem;">😄 Sonrisas</h4>
+            <h4 style="color: #28a745; margin-bottom: 0.5rem;">😄 {get_text('smiles', lang)}</h4>
             <h2 style="color: #333; margin: 0.5rem 0; font-size: 2.2rem;">{smiles}</h2>
-            <p style="color: #666; font-size: 0.9rem; margin: 0;">detectadas</p>
+            <p style="color: #666; font-size: 0.9rem; margin: 0;">{get_text('detected', lang)}</p>
         </div>
         """, unsafe_allow_html=True)
     
     # Feedback
-    st.markdown("#### 💬 Retroalimentación Detallada")
+    st.markdown(f"#### 💬 {get_text('detailed_feedback', lang)}")
     for feedback in facial_analysis.get('feedback', []):
         st.markdown(f"""
         <div style="background: #f8f9fa; padding: 1rem; margin: 0.5rem 0; border-radius: 10px; border-left: 4px solid #667eea;">
@@ -1432,14 +1437,14 @@ def display_facial_results_modern(facial_analysis):
         </div>
         """, unsafe_allow_html=True)
 
-def display_charts_modern(results, components):
+def display_charts_modern(results, components, lang='es'):
     """Display modern charts"""
     
     # Scores comparison
     scores = {
-        'Voz': results['voice_analysis'].get('score', 0),
-        'Corporal': results['body_analysis'].get('score', 0),
-        'Facial': results['facial_analysis'].get('score', 0)
+        get_text('voice', lang): results['voice_analysis'].get('score', 0),
+        get_text('body', lang): results['body_analysis'].get('score', 0),
+        get_text('facial', lang): results['facial_analysis'].get('score', 0)
     }
     
     # Create chart
@@ -1448,7 +1453,7 @@ def display_charts_modern(results, components):
         st.pyplot(fig)
     except Exception as e:
         # Fallback to simple bar chart using Streamlit
-        st.markdown("### 📊 Comparación de Puntuaciones")
+        st.markdown(f"### 📊 {get_text('score_comparison', lang)}")
         df = pd.DataFrame([scores])
         st.bar_chart(df.T)
 
