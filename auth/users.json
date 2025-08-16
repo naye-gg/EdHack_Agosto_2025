@@ -36014,6 +36014,38 @@
         "registered_at": "2025-08-16T15:22:05.460798",
         "analyses": [],
         "total_sessions": 0
+      },
+      "9821481274": {
+        "dni": "9821481274",
+        "anonymous_id": "EST_004",
+        "name": "Estudiante 4",
+        "registered_at": "2025-08-16T16:56:02.890021",
+        "analyses": [],
+        "total_sessions": 0
+      },
+      "23812410": {
+        "dni": "23812410",
+        "anonymous_id": "EST_005",
+        "name": "Estudiante 5",
+        "registered_at": "2025-08-16T16:56:05.686093",
+        "analyses": [],
+        "total_sessions": 0
+      },
+      "88734814": {
+        "dni": "88734814",
+        "anonymous_id": "EST_006",
+        "name": "Estudiante 6",
+        "registered_at": "2025-08-16T16:56:11.944427",
+        "analyses": [],
+        "total_sessions": 0
+      },
+      "7721368": {
+        "dni": "7721368",
+        "anonymous_id": "EST_007",
+        "name": "Estudiante 7",
+        "registered_at": "2025-08-16T16:56:18.020296",
+        "analyses": [],
+        "total_sessions": 0
       }
     },
     "settings": {

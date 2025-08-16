@@ -867,7 +867,7 @@ def show_modern_analysis_interface(components, user, lang):
     with col1:
         st.markdown(f"""
         <div class="analysis-card">
-            <h3 style="margin-bottom: 1.5rem; color: var(--accent-primary);">📁 {get_text('upload_video_presentation', lang)}</h3>
+            <h3 style="margin-bottom: 1.5rem; color: var(--accent-primary);">📁 {get_text('Sube el video del alumno', lang)}</h3>
             <p style="margin-bottom: 1rem; color: var(--text-secondary); font-size: 1.1rem;">
                 {get_text('analyzing_for', lang)}: <strong style="color: var(--accent-primary);">{selected_student['anonymous_id']}</strong>
             </p>
