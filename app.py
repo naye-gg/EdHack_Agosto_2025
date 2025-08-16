@@ -525,7 +525,7 @@ def show_global_controls():
         with subcol2:
             # Theme toggle
             theme_icon = "🌙" if not st.session_state.dark_mode else "☀️"
-            if st.button(theme_icon, key="header_theme_toggle", help="Cambiar tema"):
+            if st.button(theme_icon, key="theme_toggle", help="Cambiar tema"):
                 st.session_state.dark_mode = not st.session_state.dark_mode
                 st.rerun()
 
@@ -595,11 +595,11 @@ def show_modern_auth_interface(user_manager):
             <div class="logo-container">
                 {logo_html}
                 <div>
-                    <div class="header-title">🎯 Coach AI</div>
+                    <div class="header-title">🎯 HablaPRO AI</div>
                     <div class="header-subtitle">{get_text("app_subtitle", lang)}</div>
                 </div>
             </div>
-            <p style="font-size: 1.2rem; margin-top: 1rem; opacity: 0.9; max-width: 600px; margin-left: auto; margin-right: auto;">
+            <p style="font-size: 1.2rem; margin-top: 1rem; opacity: 0.0; max-width: 600px; margin-left: auto; margin-right: auto;">
                 {get_text("app_description", lang)}
             </p>
         </div>
