@@ -1,6 +1,6 @@
 # Overview
 
-PresentAI is a comprehensive presentation skills analysis application built with Streamlit that provides AI-powered feedback on various aspects of public speaking. The system analyzes uploaded videos to evaluate voice quality, body language, and facial expressions, offering detailed scoring and actionable feedback to help users improve their presentation abilities. The application is designed primarily for educational environments, allowing students to submit presentation videos and receive detailed analysis reports.
+HablaPRO is a comprehensive presentation skills analysis application built with Streamlit that provides AI-powered feedback on various aspects of public speaking. The system analyzes uploaded videos to evaluate voice quality, body language, and facial expressions, offering detailed scoring and actionable feedback to help users improve their presentation abilities. The application is designed primarily for educational environments, allowing students to submit presentation videos and receive detailed analysis reports.
 
 # User Preferences
 

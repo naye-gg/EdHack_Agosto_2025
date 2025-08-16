@@ -319,7 +319,7 @@ class ReportGenerator:
         section = []
         
         section.append(Spacer(1, 30))
-        footer_text = f"{self._get_text('generated_by', language)} PresentAI - {datetime.now().strftime('%d/%m/%Y %H:%M')}"
+        footer_text = f"{self._get_text('generated_by', language)} HablaPRO - {datetime.now().strftime('%d/%m/%Y %H:%M')}"
         footer_style = ParagraphStyle('Footer', parent=self.body_style, fontSize=8, textColor=colors.grey)
         section.append(Paragraph(footer_text, footer_style))
         

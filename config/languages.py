@@ -1,4 +1,4 @@
-"""Multi-language support for PresentAI"""
+"""Multi-language support for HablaPRO"""
 
 LANGUAGES = {
     "es": {
@@ -6,7 +6,7 @@ LANGUAGES = {
         "flag": "🇪🇸",
         "translations": {
             # Navigation and Header
-            "app_title": "PresentAI - Analizador de Habilidades de Presentación",
+            "app_title": "HablaPRO - Analizador de Habilidades de Presentación",
             "app_subtitle": "Mejora tus habilidades de presentación con análisis IA",
             "login": "Iniciar Sesión",
             "register": "Registrarse",
@@ -174,7 +174,7 @@ LANGUAGES = {
         "flag": "🇺🇸",
         "translations": {
             # Navigation and Header
-            "app_title": "PresentAI - Presentation Skills Analyzer",
+            "app_title": "HablaPRO - Presentation Skills Analyzer",
             "app_subtitle": "Improve your presentation skills with AI analysis",
             "login": "Login",
             "register": "Register",
@@ -296,7 +296,7 @@ LANGUAGES = {
         "flag": "🏔️",
         "translations": {
             # Navigation and Header
-            "app_title": "PresentAI - Rimana Yachaykunata Qhawaq",
+            "app_title": "HablaPRO - Rimana Yachaykunata Qhawaq",
             "app_subtitle": "Rimana yachayniykita allinchaspa AI qhawaywan",
             "login": "Yaykuy",
             "register": "Qillqakuy",
