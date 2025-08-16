@@ -1,0 +1,279 @@
+# Coach AI v2 - Archivos a ignorar en Git
+
+# =============================================================================
+# ENTORNOS VIRTUALES
+# =============================================================================
+venv/
+env/
+ENV/
+.venv/
+.env/
+virtual_env/
+virtualenv/
+
+# =============================================================================
+# CONFIGURACIÓN LOCAL
+# =============================================================================
+.env
+.env.local
+.env.*.local
+config.local.py
+settings.local.py
+
+# =============================================================================
+# PYTHON
+# =============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# =============================================================================
+# DATOS DE LA APLICACIÓN
+# =============================================================================
+data/students/*/
+auth/users.json
+reports/
+logs/
+backups/
+temp/
+tmp/
+
+# Pero mantener la estructura de directorios
+!data/students/.gitkeep
+!auth/.gitkeep
+!reports/.gitkeep
+!logs/.gitkeep
+!backups/.gitkeep
+
+# =============================================================================
+# ARCHIVOS MULTIMEDIA
+# =============================================================================
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.wav
+*.mp3
+*.m4a
+*.flv
+*.wmv
+
+# Excepto archivos de ejemplo
+!examples/*.mp4
+!assets/*.mp4
+
+# =============================================================================
+# JUPYTER NOTEBOOK
+# =============================================================================
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+profile_default/
+ipython_config.py
+
+# =============================================================================
+# TESTING
+# =============================================================================
+.tox/
+.nox/
+.coverage
+.pytest_cache/
+cover/
+htmlcov/
+.coverage.*
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# =============================================================================
+# DOCUMENTACIÓN
+# =============================================================================
+docs/_build/
+.readthedocs.yml
+site/
+
+# =============================================================================
+# IDEs Y EDITORES
+# =============================================================================
+
+# PyCharm
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# =============================================================================
+# SISTEMA OPERATIVO
+# =============================================================================
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Linux
+*~
+.directory
+.Trash-*
+.nfs*
+
+# =============================================================================
+# STREAMLIT
+# =============================================================================
+.streamlit/secrets.toml
+.streamlit/config.toml
+
+# Pero mantener archivos de ejemplo
+!.streamlit/config.toml.example
+!.streamlit/secrets.toml.example
+
+# =============================================================================
+# MODELOS Y CACHE
+# =============================================================================
+
+# Modelos de ML descargados
+models/
+*.pkl
+*.joblib
+*.h5
+*.pb
+*.onnx
+
+# Cache de librerías
+.cache/
+.ffmpeg/
+.whisper/
+
+# =============================================================================
+# VARIABLES DE DESARROLLO
+# =============================================================================
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+cython_debug/
+
+# =============================================================================
+# LOGS Y TEMPORALES
+# =============================================================================
+*.log
+*.tmp
+.temp/
+temp_*
+tmp_*
+
+# =============================================================================
+# ARCHIVOS DE CONFIGURACIÓN SENSIBLES
+# =============================================================================
+secrets.json
+credentials.json
+*.key
+*.pem
+*.crt
+*.p12
+
+# =============================================================================
+# HERRAMIENTAS DE BUILD
+# =============================================================================
+.wheel/
+*.whl
+*.tar.gz
+setup.cfg
+pyproject.toml.bak
+
+# =============================================================================
+# ANÁLISIS DE CÓDIGO
+# =============================================================================
+.pylint.d/
+.bandit
+.safety
+.pre-commit-config.yaml
+
+# =============================================================================
+# BASES DE DATOS LOCALES
+# =============================================================================
+*.sqlite
+*.sqlite3
+*.db
+*.database
+
+# =============================================================================
+# ARCHIVOS DE RESPALDO
+# =============================================================================
+*.bak
+*.backup
+*.old
+*.orig
+coach-ai-backup-*.tar.gz

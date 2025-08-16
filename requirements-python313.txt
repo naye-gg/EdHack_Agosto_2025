@@ -1,0 +1,42 @@
+# Coach AI v2 - Dependencias para Python 3.13+
+# ADVERTENCIA: Funcionalidad limitada sin MediaPipe
+
+# Framework web
+streamlit>=1.48.1
+
+# Análisis de voz y audio
+openai-whisper>=20231117
+librosa>=0.11.0
+soundfile>=0.13.1
+
+# Análisis de video básico (sin MediaPipe)
+opencv-python>=4.11.0.86
+
+# Procesamiento de datos y matemáticas
+numpy>=1.26.4
+pandas>=2.3.1
+
+# Visualización
+matplotlib>=3.10.5
+seaborn>=0.13.2
+
+# Procesamiento de imágenes
+pillow>=11.3.0
+
+# Generación de reportes
+fpdf2>=2.8.4
+reportlab>=4.4.3
+openpyxl>=3.1.5
+
+# Autenticación y seguridad
+streamlit-authenticator>=0.4.2
+bcrypt>=4.3.0
+
+# NOTA: Sin MediaPipe, las siguientes funcionalidades NO estarán disponibles:
+# - Análisis de lenguaje corporal
+# - Análisis de expresiones faciales
+# - Detección de gestos
+# 
+# Solo funcionará el análisis de voz y contenido de texto.
+#
+# Para funcionalidad completa, use Python 3.11 o 3.12 con requirements.txt

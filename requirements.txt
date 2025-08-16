@@ -1,0 +1,43 @@
+# Coach AI v2 - Análisis de Presentaciones con IA
+# Requiere Python 3.11 - 3.12 (MediaPipe no soporta 3.13 aún)
+
+# Framework web
+streamlit>=1.48.1
+
+# Análisis de voz y audio
+openai-whisper>=20231117
+librosa>=0.11.0
+soundfile>=0.13.1
+
+# Análisis de video y visión por computadora
+opencv-python>=4.11.0.86
+# Nota: MediaPipe requiere Python 3.11-3.12, no 3.13
+mediapipe>=0.10.21; python_version<"3.13"
+
+# Procesamiento de datos y matemáticas
+numpy>=1.26.4
+pandas>=2.3.1
+
+# Visualización
+matplotlib>=3.10.5
+seaborn>=0.13.2
+
+# Procesamiento de imágenes
+pillow>=11.3.0
+
+# Generación de reportes
+fpdf2>=2.8.4
+reportlab>=4.4.3
+openpyxl>=3.1.5
+
+# Autenticación y seguridad
+streamlit-authenticator>=0.4.2
+bcrypt>=4.3.0
+
+# Dependencias del sistema (pueden requerir instalación adicional)
+# Para sistemas Ubuntu/Debian:
+# sudo apt-get install ffmpeg libsndfile1 libsndfile1-dev
+# Para macOS:
+# brew install ffmpeg libsndfile
+# Para Windows:
+# Descargar ffmpeg desde https://ffmpeg.org/download.html
