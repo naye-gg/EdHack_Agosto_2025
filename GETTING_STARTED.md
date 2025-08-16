@@ -5,12 +5,17 @@ Esta guía te ayudará a configurar y ejecutar Coach AI v2 en pocos minutos.
 ## ⚡ Inicio Ultra Rápido (1 comando)
 
 ```bash
-# Configurar todo automáticamente
+# Linux/macOS
 python setup_venv.py
+./run.sh
 
-# Ejecutar aplicación
-./run.sh          # Linux/macOS
-run.bat           # Windows
+# Windows PowerShell (Recomendado)
+.\setup.ps1
+.\run.ps1
+
+# Windows Símbolo del sistema
+setup.bat
+run.bat
 ```
 
 ## 📋 Lista de Verificación Pre-instalación

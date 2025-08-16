@@ -48,8 +48,14 @@ brew install ffmpeg libsndfile
 git clone <repository-url>
 cd coach-ai-v2
 
-# Configurar entorno virtual automáticamente
+# Linux/macOS
 python setup_venv.py
+
+# Windows PowerShell
+.\setup.ps1
+
+# Windows Símbolo del sistema
+setup.bat
 ```
 
 ### Opción 2: Usando Makefile (Linux/macOS)
@@ -97,13 +103,15 @@ Después de ejecutar `python setup_venv.py`, usa:
 ```bash
 # Linux/macOS
 ./activate_venv.sh
+./run.sh
 
-# Windows
-activate_venv.bat
+# Windows (PowerShell - Recomendado)
+.\activate.ps1
+.\run.ps1
 
-# Ejecutar directamente
-./run.sh          # Linux/macOS
-run.bat           # Windows
+# Windows (Símbolo del sistema)
+activate.bat
+run.bat
 ```
 
 ### Opción 5: Usando uv (Más Rápido)
@@ -154,7 +162,10 @@ mkdir -p data/students auth reports logs backups
 # Linux/macOS
 ./run.sh
 
-# Windows
+# Windows PowerShell (Recomendado)
+.\run.ps1
+
+# Windows Símbolo del sistema
 run.bat
 ```
 
@@ -199,27 +210,65 @@ La aplicación estará disponible en: `http://localhost:8501`
 
 ```
 coach-ai-v2/
-├── app.py                          # Aplicación principal Streamlit
-├── requirements.txt                # Dependencias Python
-├── pyproject.toml                 # Configuración del proyecto
-├── analysis/                      # Módulos de análisis
-│   ├── voice_analyzer.py          # Análisis de voz
-│   ├── body_language_analyzer.py  # Análisis corporal
-│   ├── facial_analyzer.py         # Análisis facial
-│   └── content_analyzer.py        # Análisis de contenido
-├── auth/                          # Sistema de autenticación
-│   ├── user_manager.py            # Gestión de usuarios
-│   └── users.json                 # Base de datos de usuarios
-├── utils/                         # Utilidades
-│   ├── video_processor.py         # Procesamiento de video
-│   ├── data_storage.py            # Almacenamiento de datos
-│   └── report_generator.py        # Generación de reportes
-├── visualization/                 # Visualizaciones
-│   └── charts.py                  # Generación de gráficos
-├── config/                        # Configuración
-│   └── languages.py              # Soporte multiidioma
-└── data/                          # Datos de la aplicación
-    └── students/                  # Datos de estudiantes
+├── 📄 Aplicación Principal
+│   ├── app.py                          # Aplicación Streamlit
+│   ├── requirements.txt                # Dependencias Python 3.11-3.12
+│   ├── requirements-python313.txt     # Dependencias Python 3.13+
+│   └── pyproject.toml                 # Configuración del proyecto
+│
+├── 🚀 Scripts de Ejecución
+│   ├── Linux/macOS:
+│   │   ├── setup_venv.py              # Configuración automática
+│   │   ├── run.sh                     # Ejecutar aplicación
+│   │   ├── activate_venv.sh           # Activar entorno virtual
+│   │   └── Makefile                   # Comandos automatizados
+│   │
+│   ├── Windows PowerShell:
+│   │   ├── setup.ps1                  # Configuración avanzada
+│   │   ├── run.ps1                    # Ejecución con parámetros
+│   │   ├── activate.ps1               # Activación con información
+│   │   ├── clean.ps1                  # Limpieza selectiva
+│   │   └── help.ps1                   # Ayuda interactiva
+│   │
+│   └── Windows Batch:
+│       ├── setup.bat                  # Configuración básica
+│       ├── run.bat                    # Ejecución simple
+│       ├── activate.bat               # Activación básica
+│       ├── verify.bat                 # Verificación
+│       ├── clean.bat                  # Limpieza interactiva
+│       ├── help.bat                   # Ayuda básica
+│       └── update.bat                 # Actualización
+│
+├── 🧠 Módulos de Análisis
+│   ├── analysis/
+│   │   ├── voice_analyzer.py          # Análisis de voz
+│   │   ├── body_language_analyzer.py  # Análisis corporal
+│   │   ├── facial_analyzer.py         # Análisis facial
+│   │   └── content_analyzer.py        # Análisis de contenido
+│
+├── 🔧 Utilidades y Servicios
+│   ├── utils/
+│   │   ├── video_processor.py         # Procesamiento de video
+│   │   ├── data_storage.py            # Almacenamiento de datos
+│   │   └── report_generator.py        # Generación de reportes
+│   ├── visualization/
+│   │   └── charts.py                  # Generación de gráficos
+│   └── config/
+│       └── languages.py              # Soporte multiidioma
+│
+├── 🔐 Autenticación y Datos
+│   ├── auth/                          # Sistema de autenticación
+│   ├── data/students/                 # Datos de estudiantes
+│   ├── reports/                       # Reportes generados
+│   ├── logs/                          # Archivos de log
+│   └── backups/                       # Backups automáticos
+│
+└── 📚 Documentación
+    ├── README.md                      # Guía principal
+    ├── GETTING_STARTED.md             # Inicio rápido
+    ├── COMPATIBILITY.md               # Compatibilidad Python
+    ├── WINDOWS.md                     # Guía específica Windows
+    └── env.example                    # Configuración de ejemplo
 ```
 
 ## ⚙️ Configuración Avanzada
@@ -364,9 +413,29 @@ Este proyecto está bajo la Licencia MIT - ver archivo LICENSE para detalles.
 
 ## 🆘 Soporte
 
+### Documentación Específica
+- 📖 **Guía General**: `README.md` (este archivo)
+- 🚀 **Inicio Rápido**: `GETTING_STARTED.md`
+- 🐍 **Compatibilidad Python**: `COMPATIBILITY.md`
+- 🪟 **Guía Windows**: `WINDOWS.md`
+
+### Scripts de Ayuda
+```bash
+# Linux/macOS
+make help
+
+# Windows PowerShell
+.\help.ps1
+
+# Windows Símbolo del sistema
+help.bat
+```
+
+### Soporte Técnico
 Para problemas o preguntas:
-- Crear un issue en GitHub
-- Revisar la documentación de troubleshooting
+- Ejecutar script de verificación: `python verify_installation.py`
+- Crear un issue en GitHub con información del sistema
+- Revisar la documentación de troubleshooting específica
 - Verificar que todas las dependencias estén instaladas correctamente
 
 ## 🔄 Actualizaciones
