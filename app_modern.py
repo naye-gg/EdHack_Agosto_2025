@@ -269,11 +269,6 @@ def show_modern_login_form(user_manager):
     """Show modern login form"""
     
     st.markdown("""
-    <div class="analysis-card">
-        <h3 style="text-align: center; margin-bottom: 2rem; color: #667eea;">
-            Bienvenido de vuelta
-        </h3>
-    </div>
     """, unsafe_allow_html=True)
     
     with st.form("login_form", clear_on_submit=False):
@@ -306,13 +301,7 @@ def show_modern_login_form(user_manager):
 def show_modern_register_form(user_manager):
     """Show modern registration form"""
     
-    st.markdown("""
-    <div class="analysis-card">
-        <h3 style="text-align: center; margin-bottom: 2rem; color: #667eea;">
-            Crear Nueva Cuenta
-        </h3>
-    </div>
-    """, unsafe_allow_html=True)
+    
     
     with st.form("register_form", clear_on_submit=True):
         username = st.text_input("👤 Usuario", placeholder="Elige un nombre de usuario")

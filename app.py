@@ -49,28 +49,28 @@ logo_b64 = load_image_as_base64("utils/media/logo.jpeg")
 # Dynamic CSS based on theme
 def get_dynamic_css(dark_mode=False):
     if dark_mode:
-        # Dark mode colors - Professional palette
-        bg_primary = "#0F1419"
-        bg_secondary = "#1C2128"
-        bg_card = "#21262D"
-        text_primary = "#F0F6FC"
-        text_secondary = "#8B949E"
-        border_color = "#30363D"
-        accent_primary = "#238636"
-        accent_secondary = "#2EA043"
-        shadow_color = "rgba(0, 0, 0, 0.6)"
-        input_bg = "#21262D"
+        # Dark mode colors - Purple palette
+        bg_primary = "#1A0D26"
+        bg_secondary = "#2D1B3D"
+        bg_card = "#3D2954"
+        text_primary = "#F0E6FF"
+        text_secondary = "#C4A3E8"
+        border_color = "#4A3366"
+        accent_primary = "#2A1F43"
+        accent_secondary = "#A855F7"
+        shadow_color = "rgba(139, 92, 246, 0.3)"
+        input_bg = "#2D1B3D"
     else:
-        # Light mode colors - Professional palette
-        bg_primary = "#F6F8FA"
+        # Light mode colors - Purple palette
+        bg_primary = "#FAF7FF"
         bg_secondary = "#FFFFFF"
         bg_card = "#FFFFFF"
-        text_primary = "#24292F"
-        text_secondary = "#656D76"
-        border_color = "#D0D7DE"
-        accent_primary = "#0969DA"
-        accent_secondary = "#0550AE"
-        shadow_color = "rgba(0, 0, 0, 0.15)"
+        text_primary = "#44186B"
+        text_secondary = "#7C3AED"
+        border_color = "#DDD6FE"
+        accent_primary = "#8B5CF6"
+        accent_secondary = "#7C3AED"
+        shadow_color = "rgba(139, 92, 246, 0.15)"
         input_bg = "#FFFFFF"
     
     background_image = f"data:image/jpeg;base64,{background_b64}" if background_b64 else ""
@@ -94,7 +94,6 @@ def get_dynamic_css(dark_mode=False):
         
         /* Main app background */
         .stApp {{
-            background-color: var(--bg-primary);
             transition: all 0.3s ease;
         }}
         
@@ -166,8 +165,9 @@ def get_dynamic_css(dark_mode=False):
             background-image: url('{background_image}');
             background-size: cover;
             background-position: center;
-            opacity: 0.15;
+            opacity: 0.3;
             z-index: 1;
+            filter: none;
         }}
         
         .header-content {{
@@ -232,8 +232,8 @@ def get_dynamic_css(dark_mode=False):
             left: 0;
             right: 0;
             bottom: 0;
-            background: {'rgba(15, 20, 25, 0.85)' if dark_mode else 'rgba(246, 248, 250, 0.9)'};
-            backdrop-filter: blur(15px);
+            background: {'rgba(15, 20, 25, 0.75)' if dark_mode else 'rgba(246, 248, 250, 0.8)'};
+            backdrop-filter: blur(8px);
         }}
         
         .auth-card {{
@@ -287,6 +287,47 @@ def get_dynamic_css(dark_mode=False):
         .analysis-card:hover {{
             transform: translateY(-12px);
             box-shadow: 0 25px 80px var(--shadow-color);
+        }}
+        
+        /* Results layout improvements */
+        .results-container {{
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }}
+        
+        .results-header {{
+            background: var(--bg-card);
+            padding: 3rem;
+            border-radius: 25px;
+            margin-bottom: 2rem;
+            text-align: center;
+            box-shadow: 0 15px 50px var(--shadow-color);
+            border: 2px solid var(--border-color);
+        }}
+        
+        .results-tabs {{
+            margin-top: 2rem;
+        }}
+        
+        .results-section {{
+            background: var(--bg-card);
+            padding: 3rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px var(--shadow-color);
+            border: 2px solid var(--border-color);
+        }}
+        
+        .score-display {{
+            font-size: 4rem;
+            font-weight: 900;
+            text-align: center;
+            margin: 2rem 0;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }}
         
         /* Button styling */
@@ -483,6 +524,34 @@ def get_dynamic_css(dark_mode=False):
         
         .loading {{
             animation: pulse 2s infinite;
+        }}
+        
+        /* Small logout button */
+        .logout-btn {{
+            font-size: 0.8rem !important;
+            padding: 0.3rem 0.6rem !important;
+            height: auto !important;
+            min-height: auto !important;
+        }}
+        
+        /* Override Streamlit button styles for logout */
+        div[data-testid="column"] button[kind="secondary"] {{
+            font-size: 0.75rem !important;
+            padding: 0.25rem 0.5rem !important;
+            height: 2rem !important;
+            min-height: 2rem !important;
+            border-radius: 0.5rem !important;
+            background-color: var(--accent-primary) !important;
+            border: 1px solid var(--accent-secondary) !important;
+            color: white !important;
+        }}
+        
+        /* Specific small logout button */
+        button[key="small_logout"] {{
+            font-size: 0.7rem !important;
+            padding: 0.2rem 0.4rem !important;
+            height: 1.8rem !important;
+            min-height: 1.8rem !important;
         }}
     </style>
     """
@@ -714,10 +783,26 @@ def show_modern_main_interface(components):
         """, unsafe_allow_html=True)
     
     with col2:
-        if st.button(f"🚪 {get_text('logout', lang)}", type="secondary"):
-            st.session_state.authenticated = False
-            st.session_state.user = None
-            st.rerun()
+        # Create smaller logout button with custom styling
+        logout_subcol1, logout_subcol2 = st.columns([1, 1])
+        with logout_subcol2:
+            st.markdown("""
+            <style>
+            .small-logout-btn {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                height: 100%;
+            }
+            </style>
+            <div class="small-logout-btn">
+            </div>
+            """, unsafe_allow_html=True)
+            
+            if st.button(f"🚪 {get_text('logout', lang)}", type="secondary", key="small_logout"):
+                st.session_state.authenticated = False
+                st.session_state.user = None
+                st.rerun()
     
     # Navigation with modern tabs
     tab1, tab2, tab3, tab4 = st.tabs([
@@ -825,7 +910,7 @@ def show_modern_dashboard(components, user, lang):
         """, unsafe_allow_html=True)
 
 def show_modern_analysis_interface(components, user, lang):
-    """Show modern video analysis interface"""
+    """Show modern video analysis interface with simple/advanced modes"""
     
     st.markdown(f"## 🎥 {get_text('video_analysis', lang)}")
     
@@ -855,13 +940,61 @@ def show_modern_analysis_interface(components, user, lang):
     
     selected_student = students[selected_student_idx]
     
-    # Two-column layout
-    col1, col2 = st.columns([2, 1])
+    # Analysis Mode Selection
+    st.markdown("---")
+    st.markdown(f"### ⚙️ {get_text('analysis_mode', lang)}")
     
-    with col1:
+    col_mode1, col_mode2 = st.columns(2)
+    
+    with col_mode1:
         st.markdown(f"""
         <div class="analysis-card">
-            <h3 style="margin-bottom: 1.5rem; color: var(--accent-primary);">📁 {get_text('Sube el video del alumno', lang)}</h3>
+            <h4 style="color: var(--accent-primary); margin-bottom: 1rem;">📊 {get_text('simple_analysis', lang)}</h4>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1rem;">
+                {get_text('simple_analysis_description', lang)}
+            </p>
+            <ul style="color: var(--text-secondary); font-size: 0.9rem; margin-left: 1rem;">
+                <li>🗣️ {get_text('voice_analysis', lang)}</li>
+                <li>🕴️ {get_text('body_analysis', lang)}</li>
+                <li>😊 {get_text('facial_analysis', lang)}</li>
+            </ul>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with col_mode2:
+        st.markdown(f"""
+        <div class="analysis-card">
+            <h4 style="color: var(--accent-primary); margin-bottom: 1rem;">🚀 {get_text('advanced_analysis', lang)}</h4>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1rem;">
+                {get_text('advanced_analysis_description', lang)}
+            </p>
+            <ul style="color: var(--text-secondary); font-size: 0.9rem; margin-left: 1rem;">
+                <li>📊 {get_text('all_simple_features', lang)}</li>
+                <li>📝 {get_text('content_analysis', lang)}</li>
+                <li>📋 {get_text('script_comparison', lang)}</li>
+                <li>📈 {get_text('detailed_recommendations', lang)}</li>
+            </ul>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    # Mode selection
+    analysis_mode = st.radio(
+        f"{get_text('select_analysis_mode', lang)}:",
+        options=[get_text('simple_analysis', lang), get_text('advanced_analysis', lang)],
+        horizontal=True,
+        key="analysis_mode"
+    )
+    
+    is_advanced_mode = analysis_mode == get_text('advanced_analysis', lang)
+    
+    # Main content layout
+    col1, col2 = st.columns([3, 1])
+    
+    with col1:
+        # Video upload section
+        st.markdown(f"""
+        <div class="analysis-card">
+            <h3 style="margin-bottom: 1.5rem; color: var(--accent-primary);">� {get_text('upload_video_presentation', lang)}</h3>
             <p style="margin-bottom: 1rem; color: var(--text-secondary); font-size: 1.1rem;">
                 {get_text('analyzing_for', lang)}: <strong style="color: var(--accent-primary);">{selected_student['anonymous_id']}</strong>
             </p>
@@ -873,8 +1006,60 @@ def show_modern_analysis_interface(components, user, lang):
             f"{get_text('select_video', lang)}:",
             type=['mp4', 'avi', 'mov', 'mkv'],
             help=f"{get_text('supported_formats', lang)}: MP4, AVI, MOV, MKV (Max: 300MB)",
-            label_visibility="collapsed"
+            label_visibility="collapsed",
+            key="video_upload"
         )
+        
+        # Script upload section (only for advanced mode)
+        script_content = None
+        if is_advanced_mode:
+            st.markdown("---")
+            st.markdown(f"""
+            <div class="analysis-card">
+                <h3 style="margin-bottom: 1.5rem; color: var(--accent-primary);">📝 {get_text('presentation_script', lang)} ({get_text('optional', lang)})</h3>
+                <p style="margin-bottom: 1rem; color: var(--text-secondary); font-size: 1rem;">
+                    {get_text('script_help_detailed', lang)}
+                </p>
+            </div>
+            """, unsafe_allow_html=True)
+            
+            # Script input options
+            script_option = st.radio(
+                f"{get_text('script_input_method', lang)}:",
+                options=[get_text('no_script', lang), get_text('upload_script_file', lang), get_text('write_script_manually', lang)],
+                horizontal=True,
+                key="script_option"
+            )
+            
+            if script_option == get_text('upload_script_file', lang):
+                uploaded_script = st.file_uploader(
+                    f"{get_text('upload_script', lang)}:",
+                    type=['txt', 'docx', 'pdf'],
+                    help=f"{get_text('supported_script_formats', lang)}: TXT, DOCX, PDF",
+                    key="script_upload"
+                )
+                
+                if uploaded_script is not None:
+                    try:
+                        if uploaded_script.type == "text/plain":
+                            script_content = uploaded_script.read().decode('utf-8')
+                        else:
+                            st.warning(f"⚠️ {get_text('only_txt_supported_now', lang)}")
+                    except Exception as e:
+                        st.error(f"❌ {get_text('error_reading_script', lang)}: {str(e)}")
+            
+            elif script_option == get_text('write_script_manually', lang):
+                script_content = st.text_area(
+                    f"{get_text('write_your_script', lang)}:",
+                    placeholder=get_text('script_placeholder', lang),
+                    height=200,
+                    key="manual_script"
+                )
+            
+            # Show script preview if available
+            if script_content:
+                with st.expander(f"👀 {get_text('script_preview', lang)}"):
+                    st.text(script_content[:500] + "..." if len(script_content) > 500 else script_content)
         
         if uploaded_file is not None:
             # Show video preview
@@ -884,9 +1069,11 @@ def show_modern_analysis_interface(components, user, lang):
             st.markdown("<br>", unsafe_allow_html=True)
             col_btn1, col_btn2, col_btn3 = st.columns([1, 2, 1])
             with col_btn2:
-                if st.button(f"🚀 {get_text('analyze_presentation', lang)}", type="primary", use_container_width=True):
+                analysis_text = get_text('analyze_presentation_simple', lang) if not is_advanced_mode else get_text('analyze_presentation_advanced', lang)
+                if st.button(f"🚀 {analysis_text}", type="primary", use_container_width=True):
                     analyze_presentation_modern(
-                        uploaded_file, selected_student, components, user, lang
+                        uploaded_file, selected_student, components, user, lang, 
+                        is_advanced=is_advanced_mode, script_content=script_content
                     )
     
     with col2:
@@ -1035,16 +1222,18 @@ def show_modern_reports_interface(components, user, lang):
         else:
             st.info(f"⚠️ {get_text('no_students_with_analyses', lang)}")
 
-def analyze_presentation_modern(uploaded_file, student, components, user, lang):
-    """Modern analysis interface with enhanced UX"""
+def analyze_presentation_modern(uploaded_file, student, components, user, lang, is_advanced=False, script_content=None):
+    """Modern analysis interface with enhanced UX and advanced mode support"""
     
     # Create modern progress container
     progress_container = st.empty()
     
+    analysis_mode = get_text('advanced_analysis', lang) if is_advanced else get_text('simple_analysis', lang)
+    
     with progress_container.container():
         st.markdown(f"""
         <div class="progress-container">
-            <h3 style="color: var(--accent-primary);">🔄 {get_text('analyzing_presentation', lang)}</h3>
+            <h3 style="color: var(--accent-primary);">🔄 {get_text('analyzing_presentation', lang)} ({analysis_mode})</h3>
             <p style="color: var(--text-secondary); font-size: 1.1rem;">{get_text('processing_with_ai', lang)}...</p>
         </div>
         """, unsafe_allow_html=True)
@@ -1081,11 +1270,24 @@ def analyze_presentation_modern(uploaded_file, student, components, user, lang):
         
         # Step 4: Facial expression analysis
         status_text.text(f"😊 {get_text('analyzing_facial_expressions', lang)}...")
-        progress_bar.progress(90)
+        progress_step = 70 if not is_advanced else 60
+        progress_bar.progress(progress_step)
         
         facial_results = components['facial_analyzer'].analyze(video_path)
         
-        # Step 5: Compile results
+        # Step 5: Content analysis (only in advanced mode)
+        content_results = None
+        if is_advanced and script_content:
+            status_text.text(f"📝 {get_text('analyzing_content', lang)}...")
+            progress_bar.progress(80)
+            
+            # Extract audio transcription from voice analysis for comparison
+            transcribed_text = voice_results.get('transcription', '')
+            content_results = components['content_analyzer'].analyze_with_script(
+                transcribed_text, script_content
+            )
+        
+        # Final step: Compile results
         status_text.text(f"📊 {get_text('compiling_results', lang)}...")
         progress_bar.progress(100)
         
@@ -1095,11 +1297,23 @@ def analyze_presentation_modern(uploaded_file, student, components, user, lang):
             'student_id': student['anonymous_id'],
             'student_dni': student['dni'],
             'video_duration': video_info['duration'],
+            'analysis_mode': 'advanced' if is_advanced else 'simple',
             'voice_analysis': voice_results,
             'body_analysis': body_results,
             'facial_analysis': facial_results,
             'overall_score': calculate_overall_score(voice_results, body_results, facial_results)
         }
+        
+        # Add content analysis if available
+        if content_results:
+            analysis_results['content_analysis'] = content_results
+            analysis_results['script_provided'] = True
+            # Recalculate overall score including content
+            analysis_results['overall_score'] = calculate_overall_score_advanced(
+                voice_results, body_results, facial_results, content_results
+            )
+        else:
+            analysis_results['script_provided'] = False
         
         # Save results
         components['user_manager'].add_student_analysis(
@@ -1112,7 +1326,7 @@ def analyze_presentation_modern(uploaded_file, student, components, user, lang):
         progress_container.empty()
         
         st.success(f"✅ {get_text('analysis_completed_successfully', lang)}!")
-        display_modern_results(analysis_results, components, lang)
+        display_modern_results(analysis_results, components, lang, is_advanced)
         
         # Clean up
         os.unlink(video_path)
@@ -1255,47 +1469,88 @@ def generate_class_report(students, components, user, report_type, lang):
     except Exception as e:
         st.error(f"❌ Error generando el reporte de clase: {str(e)}")
 
-def display_modern_results(results, components, lang='es'):
-    """Display analysis results with modern interface"""
+def display_modern_results(results, components, lang='es', is_advanced=False):
+    """Display analysis results with modern interface supporting both simple and advanced modes"""
     
     # Overall score card
     overall_score = results['overall_score']
     score_color = "#28a745" if overall_score >= 7 else "#ffc107" if overall_score >= 5 else "#dc3545"
     
+    analysis_mode = results.get('analysis_mode', 'simple')
+    mode_text = get_text('advanced_analysis', lang) if analysis_mode == 'advanced' else get_text('simple_analysis', lang)
+    
     st.markdown(f"""
-    <div class="analysis-card">
+    <div class="results-header">
         <div style="text-align: center;">
-            <h2 style="color: {score_color}; margin-bottom: 1rem; font-size: 2.5rem;">
+            <h2 style="color: {score_color}; margin-bottom: 0.5rem; font-size: 2.5rem;">
                 🏆 {get_text('overall_score', lang)}: {overall_score}/10
             </h2>
+            <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 1.5rem;">
+                {mode_text} • {get_text('analysis_complete', lang)}
+            </p>
         </div>
     </div>
     """, unsafe_allow_html=True)
     
-    # Detailed results in tabs
-    tab1, tab2, tab3, tab4 = st.tabs([
-        f"🗣️ {get_text('voice_analysis', lang)}", 
-        f"🕴️ {get_text('body_language', lang)}", 
-        f"😊 {get_text('facial_expression', lang)}", 
-        f"📊 {get_text('charts', lang)}"
-    ])
-    
-    with tab1:
-        display_voice_results_modern(results['voice_analysis'], lang)
-    
-    with tab2:
-        display_body_results_modern(results['body_analysis'], lang)
-    
-    with tab3:
-        display_facial_results_modern(results['facial_analysis'], lang)
-    
-    with tab4:
-        display_charts_modern(results, components, lang)
+    # Results tabs based on analysis mode
+    if analysis_mode == 'advanced' and results.get('content_analysis'):
+        # Advanced mode with content analysis
+        tab1, tab2, tab3, tab4, tab5 = st.tabs([
+            f"�️ {get_text('voice_analysis', lang)}", 
+            f"🕴️ {get_text('body_analysis', lang)}", 
+            f"😊 {get_text('facial_analysis', lang)}",
+            f"📝 {get_text('content_analysis', lang)}",
+            f"📊 {get_text('charts', lang)}"
+        ])
+        
+        with tab1:
+            display_voice_results_modern(results['voice_analysis'], lang)
+        
+        with tab2:
+            display_body_results_modern(results['body_analysis'], lang)
+        
+        with tab3:
+            display_facial_results_modern(results['facial_analysis'], lang)
+            
+        with tab4:
+            display_content_results_modern(results['content_analysis'], lang)
+        
+        with tab5:
+            display_charts_modern_advanced(results, components, lang)
+    else:
+        # Simple mode - basic physical analysis only
+        tab1, tab2, tab3, tab4 = st.tabs([
+            f"🗣️ {get_text('voice_analysis', lang)}", 
+            f"🕴️ {get_text('body_analysis', lang)}", 
+            f"😊 {get_text('facial_analysis', lang)}",
+            f"📊 {get_text('charts', lang)}"
+        ])
+        
+        with tab1:
+            display_voice_results_modern(results['voice_analysis'], lang)
+        
+        with tab2:
+            display_body_results_modern(results['body_analysis'], lang)
+        
+        with tab3:
+            display_facial_results_modern(results['facial_analysis'], lang)
+        
+        with tab4:
+            display_charts_modern(results, components, lang)
+
 
 def display_voice_results_modern(voice_analysis, lang='es'):
     """Display voice analysis with modern design"""
     
-    col1, col2, col3 = st.columns(3)
+    # Full width section container
+    st.markdown(f"""
+    <div class="results-section">
+        <h3 style="color: var(--accent-primary); margin-bottom: 2rem;">🗣️ {get_text('voice_analysis', lang)}</h3>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # Wider columns for better spacing
+    col1, col2, col3, col4 = st.columns(4)
     
     score = voice_analysis.get('score', 0)
     score_color = "#28a745" if score >= 7 else "#ffc107" if score >= 5 else "#dc3545"
@@ -1303,8 +1558,8 @@ def display_voice_results_modern(voice_analysis, lang='es'):
     with col1:
         st.markdown(f"""
         <div class="metric-card">
-            <h4 style="color: {score_color}; margin-bottom: 0.5rem;">🗣️ {get_text('voice_score', lang)}</h4>
-            <h2 style="color: #333; margin: 0.5rem 0; font-size: 2.2rem;">{score}/10</h2>
+            <h4 style="color: {score_color}; margin-bottom: 0.5rem; text-align: center;">🗣️ {get_text('voice_score', lang)}</h4>
+            <h2 style="color: var(--text-primary); margin: 0.5rem 0; font-size: 2.5rem; text-align: center;">{score}/10</h2>
         </div>
         """, unsafe_allow_html=True)
     
@@ -1313,8 +1568,8 @@ def display_voice_results_modern(voice_analysis, lang='es'):
         clarity_color = "#28a745" if clarity >= 7 else "#ffc107" if clarity >= 5 else "#dc3545"
         st.markdown(f"""
         <div class="metric-card">
-            <h4 style="color: {clarity_color}; margin-bottom: 0.5rem;">🎯 {get_text('clarity', lang)}</h4>
-            <h2 style="color: #333; margin: 0.5rem 0; font-size: 2.2rem;">{clarity}/10</h2>
+            <h4 style="color: {clarity_color}; margin-bottom: 0.5rem; text-align: center;">🎯 {get_text('clarity', lang)}</h4>
+            <h2 style="color: var(--text-primary); margin: 0.5rem 0; font-size: 2.5rem; text-align: center;">{clarity}/10</h2>
         </div>
         """, unsafe_allow_html=True)
     
@@ -1322,27 +1577,45 @@ def display_voice_results_modern(voice_analysis, lang='es'):
         rate = voice_analysis.get('speaking_rate', 0)
         st.markdown(f"""
         <div class="metric-card">
-            <h4 style="color: #17a2b8; margin-bottom: 0.5rem;">⚡ {get_text('speed', lang)}</h4>
-            <h2 style="color: #333; margin: 0.5rem 0; font-size: 2.2rem;">{rate}</h2>
-            <p style="color: #666; font-size: 0.9rem; margin: 0;">{get_text('words_per_minute', lang)}</p>
+            <h4 style="color: #17a2b8; margin-bottom: 0.5rem; text-align: center;">⚡ {get_text('speed', lang)}</h4>
+            <h2 style="color: var(--text-primary); margin: 0.5rem 0; font-size: 2.5rem; text-align: center;">{rate}</h2>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0; text-align: center;">{get_text('words_per_minute', lang)}</p>
         </div>
         """, unsafe_allow_html=True)
     
-    # Feedback
+    with col4:
+        fillers = voice_analysis.get('filler_count', 0)
+        filler_color = "#28a745" if fillers <= 3 else "#ffc107" if fillers <= 6 else "#dc3545"
+        st.markdown(f"""
+        <div class="metric-card">
+            <h4 style="color: {filler_color}; margin-bottom: 0.5rem; text-align: center;">🚫 Muletillas</h4>
+            <h2 style="color: var(--text-primary); margin: 0.5rem 0; font-size: 2.5rem; text-align: center;">{fillers}</h2>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0; text-align: center;">{get_text('detected', lang)}</p>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    # Full width feedback section
     st.markdown(f"#### 💬 {get_text('detailed_feedback', lang)}")
     feedback_container = st.container()
     with feedback_container:
         for i, feedback in enumerate(voice_analysis.get('feedback', [])):
             st.markdown(f"""
-            <div style="background: #f8f9fa; padding: 1rem; margin: 0.5rem 0; border-radius: 10px; border-left: 4px solid #667eea;">
-                <p style="margin: 0; color: #333;">• {feedback}</p>
+            <div style="background: var(--bg-card); border: 2px solid var(--border-color); padding: 1.5rem; margin: 0.5rem 0; border-radius: 15px; border-left: 5px solid var(--accent-primary); box-shadow: 0 4px 15px var(--shadow-color);">
+                <p style="margin: 0; color: var(--text-primary); font-size: 1.1rem; line-height: 1.6;">• {feedback}</p>
             </div>
             """, unsafe_allow_html=True)
 
 def display_body_results_modern(body_analysis, lang='es'):
     """Display body language analysis with modern design"""
     
-    col1, col2, col3 = st.columns(3)
+    # Full width section container
+    st.markdown(f"""
+    <div class="results-section">
+        <h3 style="color: var(--accent-primary); margin-bottom: 2rem;">🕴️ {get_text('body_language', lang)}</h3>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    col1, col2, col3, col4 = st.columns(4)
     
     score = body_analysis.get('score', 0)
     score_color = "#28a745" if score >= 7 else "#ffc107" if score >= 5 else "#dc3545"
@@ -1350,8 +1623,8 @@ def display_body_results_modern(body_analysis, lang='es'):
     with col1:
         st.markdown(f"""
         <div class="metric-card">
-            <h4 style="color: {score_color}; margin-bottom: 0.5rem;">🕴️ {get_text('body_score', lang)}</h4>
-            <h2 style="color: #333; margin: 0.5rem 0; font-size: 2.2rem;">{score}/10</h2>
+            <h4 style="color: {score_color}; margin-bottom: 0.5rem; text-align: center;">🕴️ {get_text('body_score', lang)}</h4>
+            <h2 style="color: var(--text-primary); margin: 0.5rem 0; font-size: 2.5rem; text-align: center;">{score}/10</h2>
         </div>
         """, unsafe_allow_html=True)
     
@@ -1360,8 +1633,8 @@ def display_body_results_modern(body_analysis, lang='es'):
         posture_color = "#28a745" if posture >= 7 else "#ffc107" if posture >= 5 else "#dc3545"
         st.markdown(f"""
         <div class="metric-card">
-            <h4 style="color: {posture_color}; margin-bottom: 0.5rem;">🧍 {get_text('posture', lang)}</h4>
-            <h2 style="color: #333; margin: 0.5rem 0; font-size: 2.2rem;">{posture}/10</h2>
+            <h4 style="color: {posture_color}; margin-bottom: 0.5rem; text-align: center;">🧍 {get_text('posture', lang)}</h4>
+            <h2 style="color: var(--text-primary); margin: 0.5rem 0; font-size: 2.5rem; text-align: center;">{posture}/10</h2>
         </div>
         """, unsafe_allow_html=True)
     
@@ -1369,9 +1642,20 @@ def display_body_results_modern(body_analysis, lang='es'):
         gestures = body_analysis.get('gesture_count', 0)
         st.markdown(f"""
         <div class="metric-card">
-            <h4 style="color: #17a2b8; margin-bottom: 0.5rem;">👋 {get_text('gestures', lang)}</h4>
-            <h2 style="color: #333; margin: 0.5rem 0; font-size: 2.2rem;">{gestures}</h2>
-            <p style="color: #666; font-size: 0.9rem; margin: 0;">{get_text('detected', lang)}</p>
+            <h4 style="color: #17a2b8; margin-bottom: 0.5rem; text-align: center;">👋 {get_text('gestures', lang)}</h4>
+            <h2 style="color: var(--text-primary); margin: 0.5rem 0; font-size: 2.5rem; text-align: center;">{gestures}</h2>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0; text-align: center;">{get_text('detected', lang)}</p>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with col4:
+        movement = body_analysis.get('movement_score', 0)
+        movement_color = "#28a745" if movement >= 7 else "#ffc107" if movement >= 5 else "#dc3545"
+        st.markdown(f"""
+        <div class="metric-card">
+            <h4 style="color: {movement_color}; margin-bottom: 0.5rem; text-align: center;">🚶 Movimiento</h4>
+            <h2 style="color: var(--text-primary); margin: 0.5rem 0; font-size: 2.5rem; text-align: center;">{movement}/10</h2>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0; text-align: center;">Natural</p>
         </div>
         """, unsafe_allow_html=True)
     
@@ -1379,15 +1663,22 @@ def display_body_results_modern(body_analysis, lang='es'):
     st.markdown(f"#### 💬 {get_text('detailed_feedback', lang)}")
     for feedback in body_analysis.get('feedback', []):
         st.markdown(f"""
-        <div style="background: #f8f9fa; padding: 1rem; margin: 0.5rem 0; border-radius: 10px; border-left: 4px solid #667eea;">
-            <p style="margin: 0; color: #333;">• {feedback}</p>
+        <div style="background: var(--bg-card); border: 2px solid var(--border-color); padding: 1.5rem; margin: 0.5rem 0; border-radius: 15px; border-left: 5px solid var(--accent-primary); box-shadow: 0 4px 15px var(--shadow-color);">
+            <p style="margin: 0; color: var(--text-primary); font-size: 1.1rem; line-height: 1.6;">• {feedback}</p>
         </div>
         """, unsafe_allow_html=True)
 
 def display_facial_results_modern(facial_analysis, lang='es'):
     """Display facial expression analysis with modern design"""
     
-    col1, col2, col3 = st.columns(3)
+    # Full width section container
+    st.markdown(f"""
+    <div class="results-section">
+        <h3 style="color: var(--accent-primary); margin-bottom: 2rem;">😊 {get_text('facial_expression', lang)}</h3>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    col1, col2, col3, col4 = st.columns(4)
     
     score = facial_analysis.get('score', 0)
     score_color = "#28a745" if score >= 7 else "#ffc107" if score >= 5 else "#dc3545"
@@ -1395,8 +1686,8 @@ def display_facial_results_modern(facial_analysis, lang='es'):
     with col1:
         st.markdown(f"""
         <div class="metric-card">
-            <h4 style="color: {score_color}; margin-bottom: 0.5rem;">😊 {get_text('facial_score', lang)}</h4>
-            <h2 style="color: #333; margin: 0.5rem 0; font-size: 2.2rem;">{score}/10</h2>
+            <h4 style="color: {score_color}; margin-bottom: 0.5rem; text-align: center;">😊 {get_text('facial_score', lang)}</h4>
+            <h2 style="color: var(--text-primary); margin: 0.5rem 0; font-size: 2.5rem; text-align: center;">{score}/10</h2>
         </div>
         """, unsafe_allow_html=True)
     
@@ -1405,8 +1696,8 @@ def display_facial_results_modern(facial_analysis, lang='es'):
         eye_color = "#28a745" if eye_contact >= 7 else "#ffc107" if eye_contact >= 5 else "#dc3545"
         st.markdown(f"""
         <div class="metric-card">
-            <h4 style="color: {eye_color}; margin-bottom: 0.5rem;">👁️ {get_text('eye_contact', lang)}</h4>
-            <h2 style="color: #333; margin: 0.5rem 0; font-size: 2.2rem;">{eye_contact}/10</h2>
+            <h4 style="color: {eye_color}; margin-bottom: 0.5rem; text-align: center;">👁️ {get_text('eye_contact', lang)}</h4>
+            <h2 style="color: var(--text-primary); margin: 0.5rem 0; font-size: 2.5rem; text-align: center;">{eye_contact}/10</h2>
         </div>
         """, unsafe_allow_html=True)
     
@@ -1414,9 +1705,20 @@ def display_facial_results_modern(facial_analysis, lang='es'):
         smiles = facial_analysis.get('smile_count', 0)
         st.markdown(f"""
         <div class="metric-card">
-            <h4 style="color: #28a745; margin-bottom: 0.5rem;">😄 {get_text('smiles', lang)}</h4>
-            <h2 style="color: #333; margin: 0.5rem 0; font-size: 2.2rem;">{smiles}</h2>
-            <p style="color: #666; font-size: 0.9rem; margin: 0;">{get_text('detected', lang)}</p>
+            <h4 style="color: #28a745; margin-bottom: 0.5rem; text-align: center;">😄 {get_text('smiles', lang)}</h4>
+            <h2 style="color: var(--text-primary); margin: 0.5rem 0; font-size: 2.5rem; text-align: center;">{smiles}</h2>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0; text-align: center;">{get_text('detected', lang)}</p>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with col4:
+        confidence = facial_analysis.get('confidence_average', 0)
+        confidence_color = "#28a745" if confidence >= 0.8 else "#ffc107" if confidence >= 0.6 else "#dc3545"
+        st.markdown(f"""
+        <div class="metric-card">
+            <h4 style="color: {confidence_color}; margin-bottom: 0.5rem; text-align: center;">🎯 Confianza</h4>
+            <h2 style="color: var(--text-primary); margin: 0.5rem 0; font-size: 2.5rem; text-align: center;">{confidence*100:.0f}%</h2>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0; text-align: center;">Promedio</p>
         </div>
         """, unsafe_allow_html=True)
     
@@ -1424,8 +1726,8 @@ def display_facial_results_modern(facial_analysis, lang='es'):
     st.markdown(f"#### 💬 {get_text('detailed_feedback', lang)}")
     for feedback in facial_analysis.get('feedback', []):
         st.markdown(f"""
-        <div style="background: #f8f9fa; padding: 1rem; margin: 0.5rem 0; border-radius: 10px; border-left: 4px solid #667eea;">
-            <p style="margin: 0; color: #333;">• {feedback}</p>
+        <div style="background: var(--bg-card); border: 2px solid var(--border-color); padding: 1.5rem; margin: 0.5rem 0; border-radius: 15px; border-left: 5px solid var(--accent-primary); box-shadow: 0 4px 15px var(--shadow-color);">
+            <p style="margin: 0; color: var(--text-primary); font-size: 1.1rem; line-height: 1.6;">• {feedback}</p>
         </div>
         """, unsafe_allow_html=True)
 
@@ -1449,7 +1751,247 @@ def display_charts_modern(results, components, lang='es'):
         df = pd.DataFrame([scores])
         st.bar_chart(df.T)
 
+def display_analytics_advanced(results, lang='es'):
+    """Display advanced analytics section"""
+    
+    st.markdown(f"""
+    <div class="results-section">
+        <h3 style="color: var(--accent-primary); margin-bottom: 2rem;">📈 {get_text('detailed_analytics', lang)}</h3>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # Performance breakdown
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        st.markdown(f"#### 🎯 {get_text('performance_breakdown', lang)}")
+        
+        # Voice metrics
+        voice_score = results['voice_analysis'].get('score', 0)
+        clarity = results['voice_analysis'].get('clarity_score', 0)
+        rate = results['voice_analysis'].get('speaking_rate', 0)
+        
+        voice_data = {
+            f"{get_text('overall', lang)}": voice_score,
+            f"{get_text('clarity', lang)}": clarity,
+            f"{get_text('pace_rating', lang)}": min(10, max(0, 10 - abs(rate - 140) / 20)) if rate > 0 else 0
+        }
+        
+        df_voice = pd.DataFrame([voice_data])
+        st.bar_chart(df_voice.T)
+    
+    with col2:
+        st.markdown(f"#### 📊 {get_text('comparison_metrics', lang)}")
+        
+        # Overall comparison
+        overall_data = {
+            f"{get_text('voice', lang)}": results['voice_analysis'].get('score', 0),
+            f"{get_text('body', lang)}": results['body_analysis'].get('score', 0),
+            f"{get_text('facial', lang)}": results['facial_analysis'].get('score', 0)
+        }
+        
+        df_overall = pd.DataFrame([overall_data])
+        st.bar_chart(df_overall.T)
+    
+    # Detailed metrics
+    st.markdown(f"#### 📋 {get_text('detailed_metrics', lang)}")
+    
+    metrics_data = {
+        f"{get_text('aspect', lang)}": [
+            f"{get_text('voice_clarity', lang)}",
+            f"{get_text('speaking_pace', lang)}",
+            f"{get_text('body_posture', lang)}",
+            f"{get_text('gestures', lang)}",
+            f"{get_text('eye_contact', lang)}",
+            f"{get_text('facial_expressions', lang)}"
+        ],
+        f"{get_text('score', lang)}": [
+            results['voice_analysis'].get('clarity_score', 0),
+            min(10, max(0, 10 - abs(results['voice_analysis'].get('speaking_rate', 140) - 140) / 20)),
+            results['body_analysis'].get('posture_stability', 0),
+            min(10, results['body_analysis'].get('gesture_count', 0)),
+            results['facial_analysis'].get('eye_contact_score', 0),
+            results['facial_analysis'].get('score', 0)
+        ],
+        f"{get_text('status', lang)}": [
+            get_status_text(results['voice_analysis'].get('clarity_score', 0), lang),
+            get_status_text(min(10, max(0, 10 - abs(results['voice_analysis'].get('speaking_rate', 140) - 140) / 20)), lang),
+            get_status_text(results['body_analysis'].get('posture_stability', 0), lang),
+            get_status_text(min(10, results['body_analysis'].get('gesture_count', 0)), lang),
+            get_status_text(results['facial_analysis'].get('eye_contact_score', 0), lang),
+            get_status_text(results['facial_analysis'].get('score', 0), lang)
+        ]
+    }
+    
+    df_metrics = pd.DataFrame(metrics_data)
+    st.dataframe(df_metrics, use_container_width=True, hide_index=True)
+
+def display_recommendations_advanced(results, lang='es'):
+    """Display advanced recommendations section"""
+    
+    st.markdown(f"""
+    <div class="results-section">
+        <h3 style="color: var(--accent-primary); margin-bottom: 2rem;">💡 {get_text('personalized_recommendations', lang)}</h3>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    recommendations = generate_recommendations_modern(results, lang)
+    
+    # Priority recommendations
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        st.markdown(f"#### 🎯 {get_text('priority_improvements', lang)}")
+        
+        # Find lowest scoring areas
+        scores = {
+            'voice': results['voice_analysis'].get('score', 0),
+            'body': results['body_analysis'].get('score', 0),
+            'facial': results['facial_analysis'].get('score', 0)
+        }
+        
+        lowest_area = min(scores, key=scores.get)
+        lowest_score = scores[lowest_area]
+        
+        if lowest_score < 6:
+            area_text = get_text(f'{lowest_area}_improvement', lang)
+            st.markdown(f"""
+            <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 1.5rem; margin: 1rem 0; border-radius: 10px;">
+                <h4 style="color: #856404; margin: 0 0 0.5rem 0;">⚠️ {get_text('needs_attention', lang)}</h4>
+                <p style="color: #856404; margin: 0;">{area_text}</p>
+            </div>
+            """, unsafe_allow_html=True)
+    
+    with col2:
+        st.markdown(f"#### ✨ {get_text('strengths', lang)}")
+        
+        # Find highest scoring areas
+        highest_area = max(scores, key=scores.get)
+        highest_score = scores[highest_area]
+        
+        if highest_score >= 7:
+            strength_text = get_text(f'{highest_area}_strength', lang)
+            st.markdown(f"""
+            <div style="background: #d1edff; border-left: 4px solid #0969da; padding: 1.5rem; margin: 1rem 0; border-radius: 10px;">
+                <h4 style="color: #0969da; margin: 0 0 0.5rem 0;">🌟 {get_text('great_job', lang)}</h4>
+                <p style="color: #0969da; margin: 0;">{strength_text}</p>
+            </div>
+            """, unsafe_allow_html=True)
+    
+    # Detailed recommendations
+    st.markdown(f"#### 📝 {get_text('detailed_recommendations', lang)}")
+    
+    for i, rec in enumerate(recommendations):
+        icon = "🎯" if i == 0 else "💡"
+        st.markdown(f"""
+        <div style="background: var(--bg-card); border: 2px solid var(--border-color); padding: 2rem; margin: 1rem 0; border-radius: 15px; box-shadow: 0 4px 15px var(--shadow-color);">
+            <h4 style="color: var(--accent-primary); margin: 0 0 1rem 0;">{icon} {rec['title']}</h4>
+            <p style="color: var(--text-primary); margin: 0; line-height: 1.6;">{rec['description']}</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+def get_status_text(score, lang='es'):
+    """Get status text based on score"""
+    if score >= 8:
+        return get_text('excellent', lang)
+    elif score >= 7:
+        return get_text('very_good', lang)
+    elif score >= 6:
+        return get_text('good', lang)
+    elif score >= 4:
+        return get_text('needs_improvement', lang)
+    else:
+        return get_text('needs_work', lang)
+
+def display_content_results_modern(content_analysis, lang='es'):
+    """Display content analysis results with modern design"""
+    
+    col1, col2, col3 = st.columns(3)
+    
+    score = content_analysis.get('score', 0)
+    score_color = "#28a745" if score >= 7 else "#ffc107" if score >= 5 else "#dc3545"
+    
+    with col1:
+        st.markdown(f"""
+        <div class="metric-card">
+            <h4 style="color: {score_color}; margin-bottom: 0.5rem;">📝 {get_text('content_score', lang)}</h4>
+            <h2 style="color: #333; margin: 0.5rem 0; font-size: 2.2rem;">{score}/10</h2>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with col2:
+        adherence = content_analysis.get('script_adherence', 0)
+        adherence_color = "#28a745" if adherence >= 7 else "#ffc107" if adherence >= 5 else "#dc3545"
+        st.markdown(f"""
+        <div class="metric-card">
+            <h4 style="color: {adherence_color}; margin-bottom: 0.5rem;">📋 {get_text('script_adherence', lang)}</h4>
+            <h2 style="color: #333; margin: 0.5rem 0; font-size: 2.2rem;">{adherence}/10</h2>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with col3:
+        clarity = content_analysis.get('message_clarity', 0)
+        clarity_color = "#28a745" if clarity >= 7 else "#ffc107" if clarity >= 5 else "#dc3545"
+        st.markdown(f"""
+        <div class="metric-card">
+            <h4 style="color: {clarity_color}; margin-bottom: 0.5rem;">💡 {get_text('message_clarity', lang)}</h4>
+            <h2 style="color: #333; margin: 0.5rem 0; font-size: 2.2rem;">{clarity}/10</h2>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    # Feedback
+    st.markdown(f"#### 💬 {get_text('detailed_feedback', lang)}")
+    for feedback in content_analysis.get('feedback', []):
+        st.markdown(f"""
+        <div style="background: #f8f9fa; padding: 1rem; margin: 0.5rem 0; border-radius: 10px; border-left: 4px solid #667eea;">
+            <p style="margin: 0; color: #333;">• {feedback}</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+def display_charts_modern_advanced(results, components, lang='es'):
+    """Display advanced charts with content analysis"""
+    
+    # Scores comparison including content
+    scores = {
+        get_text('voice', lang): results['voice_analysis'].get('score', 0),
+        get_text('body', lang): results['body_analysis'].get('score', 0),
+        get_text('facial', lang): results['facial_analysis'].get('score', 0)
+    }
+    
+    # Add content score if available
+    if results.get('content_analysis'):
+        scores[get_text('content', lang)] = results['content_analysis'].get('score', 0)
+    
+    # Create chart
+    try:
+        fig = components['chart_generator'].create_score_bar_chart(scores)
+        st.pyplot(fig)
+    except Exception as e:
+        # Fallback to simple bar chart using Streamlit
+        st.markdown(f"### 📊 {get_text('score_comparison', lang)}")
+        df = pd.DataFrame([scores])
+        st.bar_chart(df.T)
+
+def calculate_overall_score_advanced(voice_results, body_results, facial_results, content_results):
+    """Calculate overall presentation score including content analysis"""
+    voice_score = voice_results.get('score', 0)
+    body_score = body_results.get('score', 0)
+    facial_score = facial_results.get('score', 0)
+    content_score = content_results.get('score', 0)
+    
+    # Weighted average (voice 25%, body 25%, facial 20%, content 30%)
+    overall = (voice_score * 0.25) + (body_score * 0.25) + (facial_score * 0.20) + (content_score * 0.30)
+    return round(overall, 1)
+
 def calculate_overall_score(voice_results, body_results, facial_results):
+    """Calculate overall presentation score for simple mode"""
+    voice_score = voice_results.get('score', 0)
+    body_score = body_results.get('score', 0)
+    facial_score = facial_results.get('score', 0)
+    
+    # Weighted average (voice 40%, body 35%, facial 25%)
+    overall = (voice_score * 0.4) + (body_score * 0.35) + (facial_score * 0.25)
+    return round(overall, 1)
     """Calculate overall presentation score"""
     voice_score = voice_results.get('score', 0)
     body_score = body_results.get('score', 0)

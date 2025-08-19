@@ -525,3 +525,136 @@ class ContentAnalyzer:
             recommendations.append("¡Excelente trabajo! Cumples con todos los criterios de la rúbrica.")
         
         return recommendations
+    
+    def analyze_with_script(self, transcribed_text, script_content):
+        """Analyze content comparing transcribed speech with provided script"""
+        try:
+            # Basic content analysis of transcribed text
+            content_analysis = self.analyze(transcribed_text)
+            
+            # Script comparison metrics
+            script_adherence = self._calculate_script_adherence(transcribed_text, script_content)
+            message_clarity = self._calculate_message_clarity(transcribed_text, script_content)
+            
+            # Calculate overall content score (weighted average)
+            content_score = content_analysis['content_score']
+            overall_score = round((content_score * 0.4) + (script_adherence * 0.3) + (message_clarity * 0.3), 1)
+            
+            # Generate feedback
+            feedback = self._generate_script_feedback(content_analysis, script_adherence, message_clarity)
+            
+            return {
+                'score': overall_score,
+                'content_score': content_score,
+                'script_adherence': script_adherence,
+                'message_clarity': message_clarity,
+                'feedback': feedback,
+                'transcribed_length': len(transcribed_text.split()),
+                'script_length': len(script_content.split()),
+                'similarity_ratio': self._calculate_similarity(transcribed_text, script_content)
+            }
+            
+        except Exception as e:
+            return {
+                'score': 0,
+                'content_score': 0,
+                'script_adherence': 0,
+                'message_clarity': 0,
+                'feedback': [f"Error en el análisis de contenido: {str(e)}"],
+                'transcribed_length': 0,
+                'script_length': 0,
+                'similarity_ratio': 0
+            }
+    
+    def _calculate_script_adherence(self, transcribed_text, script_content):
+        """Calculate how well the speech follows the script"""
+        if not script_content or not transcribed_text:
+            return 0
+            
+        # Normalize texts
+        transcript_words = set(self._normalize_text(transcribed_text).split())
+        script_words = set(self._normalize_text(script_content).split())
+        
+        # Calculate word overlap
+        common_words = transcript_words.intersection(script_words)
+        script_coverage = len(common_words) / len(script_words) if script_words else 0
+        
+        # Calculate length similarity
+        length_ratio = min(len(transcribed_text), len(script_content)) / max(len(transcribed_text), len(script_content)) if max(len(transcribed_text), len(script_content)) > 0 else 0
+        
+        # Combined adherence score
+        adherence_score = (script_coverage * 0.7) + (length_ratio * 0.3)
+        
+        return round(adherence_score * 10, 1)
+    
+    def _calculate_message_clarity(self, transcribed_text, script_content):
+        """Calculate clarity of the spoken message compared to script"""
+        if not transcribed_text:
+            return 0
+            
+        # Analyze structure and coherence of transcribed text
+        sentences = self._split_sentences(transcribed_text)
+        
+        # Clarity metrics
+        avg_sentence_length = sum(len(s.split()) for s in sentences) / len(sentences) if sentences else 0
+        coherence_score = self._calculate_coherence(transcribed_text)
+        
+        # Optimal sentence length (10-20 words)
+        length_score = 1 - abs(avg_sentence_length - 15) / 15 if avg_sentence_length > 0 else 0
+        length_score = max(0, min(1, length_score))
+        
+        # Combined clarity score
+        clarity_score = (length_score * 0.4) + (coherence_score * 0.6)
+        
+        return round(clarity_score * 10, 1)
+    
+    def _calculate_similarity(self, text1, text2):
+        """Calculate similarity ratio between two texts"""
+        if not text1 or not text2:
+            return 0
+            
+        words1 = set(self._normalize_text(text1).split())
+        words2 = set(self._normalize_text(text2).split())
+        
+        intersection = words1.intersection(words2)
+        union = words1.union(words2)
+        
+        return len(intersection) / len(union) if union else 0
+    
+    def _normalize_text(self, text):
+        """Normalize text for comparison"""
+        # Convert to lowercase and remove punctuation
+        text = re.sub(r'[^\w\s]', '', text.lower())
+        # Remove extra whitespace
+        text = re.sub(r'\s+', ' ', text).strip()
+        return text
+    
+    def _generate_script_feedback(self, content_analysis, script_adherence, message_clarity):
+        """Generate feedback for script-based analysis"""
+        feedback = []
+        
+        # Content feedback
+        if content_analysis['content_score'] < 6:
+            feedback.append("El contenido de tu presentación necesita mejorar en estructura y calidad")
+        elif content_analysis['content_score'] < 8:
+            feedback.append("Buen contenido, pero puedes mejorarlo con más detalles y ejemplos")
+        else:
+            feedback.append("Excelente calidad de contenido en tu presentación")
+        
+        # Script adherence feedback
+        if script_adherence < 6:
+            feedback.append("Te desviaste considerablemente del guión planificado")
+        elif script_adherence < 8:
+            feedback.append("Siguiste parcialmente el guión, pero hubo algunas desviaciones")
+        else:
+            feedback.append("Excelente adherencia al guión planificado")
+        
+        # Message clarity feedback
+        if message_clarity < 6:
+            feedback.append("Tu mensaje podría ser más claro y mejor estructurado")
+        elif message_clarity < 8:
+            feedback.append("Mensaje relativamente claro, pero puede mejorarse")
+        else:
+            feedback.append("Tu mensaje fue claro y bien estructurado")
+        
+        return feedback
